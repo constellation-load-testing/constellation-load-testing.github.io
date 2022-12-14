@@ -2,12 +2,8 @@
 <html data-wf-page="5f71dd169010d6326b65485d">
 
 <head>
-  <div style="height:600px; width:1200px;">
-    <script id="asciicast-SO7iVhMOfjcCdqNXuRY4wblLi" src="https://asciinema.org/a/SO7iVhMOfjcCdqNXuRY4wblLi.js"
-      data-autoplay="true" data-loop="true" data-speed="5" data-idletimeLimit="1" async></script>
-  </div>
   <meta charset="utf-8" />
-  <title>Monsoon Load Testing • Case Study</title>
+  <title>Constellation Load Testing • Case Study</title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -32,10 +28,6 @@
 </head>
 
 <body>
-  <div style="height:600px; width:1200px;">
-    <script id="asciicast-SO7iVhMOfjcCdqNXuRY4wblLi" src="https://asciinema.org/a/SO7iVhMOfjcCdqNXuRY4wblLi.js"
-      data-autoplay="true" data-loop="true" data-speed="5" data-idletimeLimit="1" async></script>
-  </div>
   <div class="navigation-wrap">
     <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navigation w-nav">
       <div class="navigation-container">
@@ -75,988 +67,987 @@
       <div id="case-study">
         <br />
         <br />
+        <!-- Introduction -->
+        <p>
+          Constellation is an open-source, serverless, end-to-end framework that aims to simplify geographically distributed load testing. 
+          Constellation automates load generation to allow developers to test how their system responds to requests from all over the globe.
+        </p>
+        <br />
         <!-- Section 1 -->
-        <h2 class="h2">1 Introduction</h2>
+        <h2 class="h2">1 Load Testing</h2>
         <br>
         <p>
-          Load tests are a critical tool for any company that wants to build and maintain robust, 
-          scalable websites and web apps. They simulate traffic hitting your servers, 
-          allowing you to measure exactly how your app performs under different load profiles.
-        </p>
-        <br>
-        <p>
-          The overall concept of load testing was born in the physical world. 
-          For example, structural engineers load test bridges before opening them to the public and power engineers load test electrical distribution systems. 
+          The term ‘load testing’ refers to the process of placing demands on a system and measuring its response. 
+          In the software community, load testing refers to measuring how a software program reacts to multiple simulated concurrent users’ requests.
         </p>
         <br>
         <p>
-          But in the world of software, load testing is the process of directing simulated traffic at any application that handles requests, 
-          be that a website, web app, API endpoint, even load balancers and caches, then measuring that software’s performance under the load.
+          A ‘load’ in this context is a set of requests made in a specific time period to any program that handles requests, 
+          such as a website, web application, or API. The term Application Programming Interface (API) is overloaded but will refer to REST APIs here. 
         </p>
         <br />
-        <h3>1.1 Who’s interested in load test results?</h3>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 1.1: Virtual Users are analogous to real-life users in load testing an API</figcaption>
+        </figure> -->
         <br />
         <p>
-          Load test results are valuable to both business stakeholders and engineering teams. 
-        </p>
-        </br>
-        <p>
-          On the business side, when an app can’t cope with its current amount of traffic, the app’s performance degrades or the app may stop working entirely. 
-          This results in an immediate drop in the company’s revenue.
-        </p>
-        <br />
-        <p>
-          From the engineering team’s perspective, load testing provides valuable feedback about your production system - how many concurrent users can it handle? 
-          How does response time change as load increases? Is there an uptick in failed requests under heavier load?
+          A real-life example of load testing would be Amazon.com making sure servers can handle 3,000,000 customers simultaneously trying to make 
+          purchases on Black Friday without errors and having the response time for 95% of users be below 400ms. 
+          The page’s load and response times can suffer under a high load, especially if users are located further from the website server and 
+          the servers are not optimized to handle such a large volume of requests.
         </p>
         <br />
         <p>
-          It’s this engineering perspective that we’ll focus on in this case study of Monsoon.
+          The impact on the performance of the Amazon website cannot be understated. For an online retailer such as Amazon, 
+          page speed matters because of its impact on revenue. In 2006, Amazon found that every 100ms delay in page load time cost them 1% of sales. 
+          As of 2021, this 1% of lost sales revenue would be approximately $3.8 billion.
         </p>
         <br />
-        <h3>1.2 What is Monsoon?</h3>
+        <h3>1.1 Importance of load test results</h3>
         <br />
         <p>
-          Monsoon is an open-source, serverless framework for running browser-based load tests in the cloud. 
+          Developers are concerned with load testing for the many insights it can provide into the system being tested, 
+          such as the maximum possible number of concurrent users, how it affects response time, and the number of failed requests. 
+        </p>
+        <br>
+        <p>
+          A useful load testing tool will allow developers to test their application with 
+          different loads and deliver comprehensible metrics such as ​​response times, server response codes, and latency.
         </p>
         <br />
-        <figure>
-          <img src="assets/images/1-introduction/demo.gif" id="case-study" alt="">
-          <figcaption>Fig 1.1: Monsoon's dashboard</figcaption>
-        </figure>
-        <figure>
-          <script id="asciicast-SO7iVhMOfjcCdqNXuRY4wblLi case-study" src="https://asciinema.org/a/SO7iVhMOfjcCdqNXuRY4wblLi.js"
-            data-autoplay="true" data-loop="true" data-speed="5" data-idletimeLimit="1" async></script>
-        </figure>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 1.2: Load testing allows insights based on metrics gathered on API call responses</figcaption>
+        </figure> -->
+        <br />
+        <h3>1.2 Challenges of implementing load testing</h3>
         <br />
         <p>
-          Monsoon allows software engineers to easily load test their single-page application in anticipation of traffic spikes or overall business growth. 
-          Monsoon can simulate loads of up to 20,000 concurrent users, and tests can be of any duration, from minutes to hours or longer. 
-          Engineers can also see their load test results visualized in a near real time dashboard.
-        </p>
-        <br />
-        <h3>1.3 Brain Boost, a Hypothetical User Story</h3>
-        <br />
-        <p>
-          To see load testing in action, let’s spend some time with the engineering team at Boost Health. 
-          Boost is a rapidly-growing startup in the health and wellness space.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/1-introduction/boost_team.svg" class="case-study-image" alt="">
-          <figcaption>Fig 1.1: The Team</figcaption>
-        </figure>
-        <p>
-          The stakes are high. Boost’s marketing team has spent months planning the product launch for its new Brain Boost supplement. 
-          It’s Boost’s biggest product launch ever, and business executives want to close new rounds of venture capital funding based on the success of Brain Boost. 
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/1-introduction/brain.svg" class="case-study-image-x-small" alt="">
-          <figcaption>Fig 1.2: Going all in on Brain Boost</figcaption>
-        </figure>
-        <br />
-        <p>
-          Boost expects more traffic than their site has ever seen on launch day. 
-          They’re predicting peaks of 4,000 concurrent users. 
-          The engineers at Boost are tasked with making sure the site can withstand all that traffic, so they decide to run load tests.
+          Load testing can be done manually by a single person or multiple people. 
+          There are many limitations and challenges associated with manual load testing, 
+          but the main difficulty is quickly generating sufficiently large loads. 
+          Manually mimicking 3,000,000 users accessing Amazon.com would be prohibitively time-consuming and expensive. 
+          A single person or multiple people on their own without test automation tools would not be able to replicate this load by themselves.
         </p>
         <br />
         <p>
-          But before we discuss these load tests, it’s important to note that the Boost website is a <strong>single page application</strong>. 
-          This has important implications for load testing.
+          To address this challenge we will discuss two approaches to load testing, browser-based and protocol-based.
         </p>
         <br />
-        <p>A single page application is a web app comprised of just a single HTML page. Unlike a traditional website, after the initial page load, there are no page reloads. 
-         Further dynamic updates to the page are handled via data-centric APIs, which rely on browser-side JavaScript for rendering. 
-        </p>
-        <br />
-        
-      
-        <h3>1.4 Boost Health and Their Load Testing Journey</h3>
+        <h3>1.3 The two types of load testing</h3>
         <br />
         <p>
-          So let’s follow along with the Boost engineers as they load test their SPA.
+          Let’s discuss what browser-based and protocol-based load testing are, why each approach exists, the problems they solve, and the tradeoffs between them.
         </p>
-        <br />
-        <h4>First Attempt - Protocol-based load testing with JMeter</h4>
-
         <br />
         <p>
-          One of the Boost engineers used a well-established, open-source load testing tool called Apache JMeter at a previous job, 
-          so this is the first option the team tries.
+          <strong>Browser-based load testing (BBLT)</strong> simulates web traffic with virtual users (VUs) following a script that dictates how to interact with application elements 
+          (buttons, forms, etc.) in actual browser instances. This method uses a headless browser, meaning there is a browser instance, 
+          but you interact with it programmatically and not via a Graphical User Interface (GUI). Headless browser load testing does not render HTML and CSS, 
+          as no one watches the simulated browsers.
         </p>
         <br />
-        <figure>
+        <p>
+          The focus for BBLT is to achieve a realistic end-to-end simulation of actual user behavior, flows, 
+          or transactions in an application and not only making network requests. 
+          An example would be a user logging into Amazon.com and going through the entire checkout process for a purchase transaction.
+        </p>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 1.3: BBLT requires browser instances for load testing</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          <strong>Protocol-based load testing (PBLT)</strong> simulates loads without the use of a browser. 
+          The focus is on sending requests to servers using the underlying HTTP network protocol. 
+          Performance is then measured on the basis of the request-response behavior. 
+          The benefits of this approach are a quick, simple setup and running test scenarios without the need to develop a user interface.
+        </p>
+        <br />
+        <p>
+          PBLT in comparison to BBLT is less resource-intensive in terms of CPU and memory usage as it avoids the overhead of launching a browser. 
+          This means PBLT can generate a greater number of VUs given the same amount of resources. 
+          An example of PBLT in action could be a large number of VUs sending HTTP requests to Amazon.com without using a browser and then 
+          measuring how the website responds.
+        </p>
+        <br />
+        <p>
+          The most suitable use case for PBLT is to test back-end components (e.g. API) 
+          while BBLT is better suited for testing an application’s user interface with application servers. 
+        </p>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 1.4: PBLT tests the API directly</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          We focused on PBLT because it is more resource efficient in generating loads for backend performance testing. 
+          In the next section we’ll look at the problem space Constellation operates in.
+        </p>
+        <br />
+        <h3>1.4 Problem Domain</h3>
+        <br />
+        <p>
+          An important point to clarify before continuing is that every application or website that is public has an API. 
+          The API can be exposed as a public interface for 3rd parties to interact with application data (e.g. Paypal) or 
+          it can be a private API internal to a website's backend that is consumed by the client (browser).
+        </p>
+        <br />
+        <p>
+          Developers can encounter many challenges in developing APIs. As APIs integrate with more services and get increasingly complex, 
+          it can become difficult to determine where performance degradation occurs and what areas to optimize. 
+          The location of consumers can also affect API performance. In an ideal situation, two consumers anywhere in the world would experience similar performances.
+        </p>
+        <br />
+        <p>
+          As an example, some companies such as Paypal offer a public API for 3rd parties to consume. Paypal’s API is available for global users to access their payment services. 
+          The appeal of the API is not only in the functionality of processing payments but also in its reliability and request-response speed. 
+          This means the API must be highly available for customers worldwide. An outage, service disruption, or performance degradation could result in severe financial 
+          and reputational repercussions for the consumer (web application consuming PayPal's API) and Paypal itself. This necessitates the API being performant regardless of geographical location.
+        </p>
+        <br />
+        <p>
+          Constructing the infrastructure to make that possible is a non-trivial problem. 
+          Suppose two API consumers that operate outside of the API provider’s region have significantly different experiences. 
+          In that case, developers need to investigate the specific regions experiencing the service differences, update the infrastructure, and check whether the performance gap has improved.
+        </p>
+        <br />
+        <h3>1.5 Geo-Distributed Load Testing</h3>
+        <br />
+        <p>
+          This form of load testing where the load is created from distinct geographic locations is called <strong>Geo-distributed load testing (GDLT)</strong>.
+        </p>
+        <br />
+        <!-- <figure>
           <img src="assets/images/1-introduction/protocol-based-load-testing.gif" class="case-study-image-large">
-          <figcaption>Fig 1.4: Protocol-based load testing</figcaption>
-        </figure>
-        <p>
-          JMeter is categorized as a <strong>protocol-based load testing</strong> tool. Protocol-based load tests are the original type of load test. 
-          They involve traffic simulation at the HTTP protocol layer. 
-          For example, if loading a webpage triggers HTTP requests for 75 subresources, with protocol-based testing, the developers will need to write code to request the original page AND all 75 of those subresources.
-        </p>
+          <figcaption>Fig 1.5: Illustration of geographically distributed load testing an API</figcaption>
+        </figure> -->
         <br />
         <p>
-          The Boost Health engineers want to test a customer adding Brain Boost to her cart, a process that breaks down into 3 different actions:
+          Accurately distributing the load during a load test can improve the reliability of the test in the following ways:
         </p>
         <ol>
-          <li>Go to the Boost Health Main Page</li>
-          <li>View the Brain Boost product details</li>
-          <li>Add Brain Boost to the cart</li>
+          <li>
+            <strong>Realistic Latency</strong>: If load testing is performed from further away than your users will be, the test values will be conservative which can lead to unnecessary scaling of infrastructure. 
+            Conversely, load testing occurring much closer to the API servers than actual users will result in optimistic, perhaps misleading latency values.
+          </li>
+          <li>
+            <strong>Workload Model</strong>: Geo-distributed load testing represents a more realistic workload because it includes where the load is coming from and how the sources interact. 
+            For example, being able to simulate high peak volume traffic originating from the US along with normal AUS traffic in a single test will allow the developer 
+            to see if the API response times for consumers in AUS are still acceptable.
+          </li>
+          <li>
+            <strong>Availability & Load Balancing</strong>: Applications built with geographical availability and load balancing mechanisms can route requests based on where those requests originate from. 
+            Being able to generate loads from multiple geographical locations can be used to test the comprehensiveness of the routing logic.
+          </li>
         </ol>
         <br/>
-        <figure>
-          <img src="assets/images/1-introduction/3actions_125requests.gif" class="case-study-image-large">
-          <figcaption>Fig 1.5: Bye bye weekend</figcaption>
-        </figure>
-        <p>
-          To simulate this workflow, the Boost engineers need to program JMeter to send 125 different HTTP requests in the correct order. This is clearly a great deal of work for the team. On top of this, JMeter is a complex tool and the learning curve is steep. 
-        </p>
-        <br />
-        <p>
-          After the team gets their first JMeter load test working, their results seem strangely incomplete. It turns out JMeter is a poor choice for load testing SPAs. 
-          SPAs are JavaScript-intensive, but JMeter has no JavaScript interpreter and therefore can’t execute any JavaScript code. (The same holds true for other protocol-based load testing tools.) 
-          Therefore, the bulk of an SPA is untestable with JMeter. This is a dealbreaker. 
-        </p>
-        <br />
-        <h4>Second Attempt - Browser-based load testing with Selenium</h4>
-        <br />
-        <p>
-          Another engineer on the Boost team knows of a different tool called Selenium and knows that Selenium can be used for browser-based load testing. 
-        </p>
-        <br />
-        <p>
-          <Strong>Browser-based load testing</strong> simulates web traffic using real web browsers rather than naked network requests. 
-          Since we’re using browser instances to direct traffic to the site being tested, 
-          those browsers clearly have built-in JavaScript interpreters and are fully capable of handling SPAs, unlike protocol-based load testing tools.
-        </p>
-        <br />
-        <p>
-          An even more fundamental difference between protocol-based load testing and browser-based load testing tools like Selenium is this: 
-          Is the core unit under test the network request? Or is it an action the end user takes (which could actually result in 100 or more network requests)?
-        </p>
-        <br />
-        <p>
-          In Boost’s case, it’s an action a website user takes, like loading the homepage, 
-          viewing product details or clicking the “Add to Cart” button.
-        </p>
-        <br />
-        <p>
-          Furthermore, thinking in terms of end user actions rather than lower-level network requests means the Boost engineers can think at a higher level of abstraction, which reduces bugs, makes for a better developer experience and saves significant amounts of developer time.
-        </p>
-        <br />
-        <p>
-          Returning to Selenium - it's a suite of browser-based test automation tools. It was never actually designed for load testing, but that's how Selenium came to be used by many developers. With Selenium, the Boost engineers don't need to worry about HTTP requests anymore. All they need to do is script their 3 end user actions ("Go to the Boost Health Main Page", "View the Brain Boost Product Details", "Add Brain Boost to the cart").​
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/1-introduction/3actions_3actions.gif" class="case-study-image-large">
-          <figcaption>Fig 1.6: Ok, that's better</figcaption>
-        </figure>
-        <p> 
-          The team runs their first browser-based load test using Selenium. 
-          It’s a fairly small-scale test simulating 5 users concurrently visiting the Boost Health website. This test goes off without a hitch. 
-        </p>
-        <br />
-        <p>
-          Next, they test 100 concurrent users. This test doesn’t go so well. Selenium is a tool that runs locally on one of the engineers’ laptops, and testing 100 users means spinning up 100 browser instances. This is too resource-intensive for a single laptop. 
-          And the actual number of users the Boost team needs to test is 4000, not 100. So the team has run out of local computing resources before they’re able to apply sufficient load to the Boost site.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/1-introduction/unhappydev-selenium.svg" class="case-study-image">
-          <figcaption>Fig 1.7: Local browser-based load testing doesn’t cut it</figcaption>
-        </figure>
-        <br />
-        <p>
-          Clearly this is unworkable. Because browser-based load testing is so resource intensive, the Boost engineers need a solution that’s hosted in the cloud.
-        </p>
-        <br />
-        <h4>Third Attempt - Browser-based load testing with Flood</h4>
-        <br />
-        <p>
-          Researching cloud-hosted, browser-based load testing, the team quickly discovers a platform called Flood. 
-          Flood is an industry leader in the cloud-hosted, browser-based load testing space. Their platform is definitely capable of generating the 4000 concurrent users Boost needs to load test their site. However, Flood is very expensive. 
-          We'll return to Flood later, but for now, the cost is a major drawback, enough to rule Flood out.
-        </p>
-        <figure>
-          <img src="assets/images/1-introduction/unhappydev-flood.svg" class="case-study-image">
-          <figcaption>Fig 1.8: Flood gets the job done but costs too much</figcaption>
-        </figure>
-        <br />
-        <h4>The Journey So Far</h4>
-        <p>
-          Let's summarize where the Boost engineers are right now. They initially tried protocol-based load testing. This was unsuccessful because protocol-based tools can't test an SPA's JavaScript code. 
-          Next, they tried local browser-based load testing. 
-          This too was unsuccessful because browser-based load testing is too resource intensive for a single machine. Third, they tried browser-based load testing in the cloud with the Flood platform. 
-          However, this proved prohibitively expensive. 
-        </p>
-        <br />
-        <p>
-          So the team searches for a more economical option for browser-based load testing in the cloud. 
-          In short order, they come across an open source tool called Monsoon.
-        </p>
-        <br />
         <!-- Section 2 -->
-        <h2>2 Overview of Monsoon</h2>
+        <h2>2 Existing Solutions</h2>
         <br />
-        <p>
-          Monsoon is a browser-based load testing platform hosted in the cloud. We built Monsoon to allow small- to medium-sized companies to load test their SPAs in a simple and scalable way, allowing them to get insights into its performance in near real time. ​
-        </p>
-        <br/>
-        <h3>2.1 Four Key Components</h3>
-        <p>
-          Monsoon uses Amazon Web Services as its cloud provider, and all the Monsoon infrastructure is deployed directly into your AWS account. This infrastructure has 4 key components: Load Generation, Transformation, Storage and Visualization. 
-        </p>
-        <figure>
-          <img src="assets/images/2-overview/monsoon_architecture_all.svg" class="case-study-image-large" alt="">
-          <figcaption>Fig. 2.1: Monsoon's 4 key components</figcaption>
-        </figure>
-        <br />
-        <h4>Load Generation</h3>
-        <br />
-        <figure>
-          <img src="assets/images/2-overview/architecture_load_generation.svg" class="case-study-image-large" alt="">
-          <figcaption>Fig. 2.2: Load Generation architecture</figcaption>
-        </figure>
-        <p>
-          A​t the start of the load test, Monsoon provisions multiple compute instances to generate load. The number of instances scales linearly with the needs of the test. Currently Monsoon is able to handle up to 20,000 virtual users.
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/2-overview/cloud_purple.gif" class="case-study-image-large" alt="">
-          <figcaption>Fig. 2.3: Headless Chrome instances in the cloud</figcaption>
-        </figure>
-        <p>
-          Inside one of these compute instances, we use a tool called Puppeteer to simulate virtual users visiting the Boost Health website. Puppeteer is a powerful, browser-based testing library for Node, distributed as an npm package. Puppeteer provides us with a high-level API that gives us full control over headless Chrome instances.
-        </p>
-        <br/>
-        <figure>
-          <img src="assets/images/2-overview/puppeteer_virtual_user.gif" class="case-study-image-large" alt="">
-          <figcaption>Fig. 2.4: Monsoon uses Puppeteer to simulate users visiting a website</figcaption>
-        </figure>
-        <p>
-          Puppeteer is very easy to use. For example, to simulate a user filling out a form, you just pass a CSS selector and the data as arguments to the <code>type</code> method. And to simulate a user clicking a button, just pass that button’s CSS selector to the <code>click</code> method.
-        </p>
+        <p>Many open-source load testing applications exist but are challenging to use simultaneously in different geographic
+        regions. That capability is usually in the premium version of the open-source tool in the form of managed deployments.
+        These managed cloud-based solutions include Blazemeter, Artillery, and k6 cloud.</p>
         <br/>
         <p>
-          Thanks to Puppeteer, Monsoon is able to abstract away a lot of the complexity of the load testing process. With Monsoon, you no longer write code to hit specific backend API endpoints. Instead, you write a simple Puppeteer script that describes the end user actions you want to simulate. Then you configure the load test by specifying the number of simulated users and the duration of the test.
-        </p>
-        <br/>
-        <p>
-          Once we have the test script and its configuration, Monsoon uses Puppeteer to create and control headless Chrome instances. Each of those Chrome instances executes the actions defined by the Boost engineers in their test script, hitting dozens or hundreds of backend API endpoints in the process.
-        </p>
-        <br/>
-        <figure>
-          <img src="assets/images/2-overview/puppeteer_load_testing.gif" class="case-study-image-large" alt="">
-          <figcaption>Fig. 2.5: Simulated users execute the test script, and Monsoon records the metrics</figcaption>
-        </figure>
-        <p>
-          Then Monsoon records performance metrics for each end user action and saves the data in JSON format. This process repeats for the duration of the load test.
-        </p>
-        <br/>
-
-        <h4>Transformation</h3>
-        <br />
-        <figure>
-          <img src="assets/images/2-overview/architecture_transformation.svg" class="case-study-image-large" alt="">
-          <figcaption>Fig. 2.6: Transformation architecture</figcaption>
-        </figure>
-        <p>
-          This load generation step can result in a serious amount of data. A one-hour test can easily generate hundreds of millions of data records. Let’s examine how Monsoon’s transformation architecture manages all this data.
-        </p>
-        <br/>
-        <figure>
-          <img src="assets/images/2-overview/aggregation_pipeline.gif" class="case-study-image-large" alt="">
-          <figcaption>Fig. 2.7: Monsoon aggregates and stores test results</figcaption>
-        </figure>
-        <p>
-          Once we have our first raw test results ready, Monsoon performs a pre-processing step inside the compute instances. This readies the results to enter Monsoon's data pipeline, beginning the transformation step we see above. In this step, the test results for all virtual users are aggregated in increments of 15 seconds.​ These aggregated test results then need to be stored in a database.
-        </p>
-        <br/>
-
-        <h4>Storage</h3>
-        <br />
-        <figure>
-          <img src="assets/images/2-overview/architecture_storage.svg" class="case-study-image-large" alt="">
-          <figcaption>Fig. 2.8: Storage Architecture</figcaption>
-        </figure>
-        <p>
-          For our Storage component, we used a time-series database. This type of database is optimized for <b>time-series data</b>, which is simply data points that are ordered by timestamp. We'll talk more about time-series data and why we opted for a time-series database later in this case study.​
-        </p>
-        <br/>
-        <h4>Visualization</h3>
-        <figure>
-          <img src="assets/images/2-overview/architecture_visualization.svg" class="case-study-image-large" alt="">
-          <figcaption>Fig. 2.9: Monsoon's Weather Channel, a near real time dashboard</figcaption>
-        </figure>
-        <br/>
-        <p>
-          Test results stored in the database can be visualized using Monsoon’s Weather Channel. Weather Channel is a locally-hosted dashboard that lets you see how your site actually performed under load.
-        </p>
-        <br/>
-        <figure>
-          <img src="assets/images/2-overview/metrics.svg" class="case-study-image-full" alt="">
-          <figcaption>Fig. 2.10: Weather Channel gives you insight into the performance of your app</figcaption>
-        </figure>
-        <br/>
-        <p>
-          Specifically, Weather Channel allows you to track:
-        </p>
-        <ul>
-          <li><b>Response time</b> - the difference in milliseconds between the start time and end time for a single end user action</li>
-          <li><b>Concurrent users</b> - the total number of virtual users making requests to the website or app under test at a single point in time</li>
-          <li><b>Transaction rate</b> - total end user actions performed per minute</li>
-          <li><b>Pass ratio</b> - ratio of the number of requests that do not generate an error to the total number of requests</li>
-        </ul>
-        <!-- Section 3-->
-        <h2>3 Who should use Monsoon?</h2>
-        <br />
-        <p>
-          Let's take a look at Boost's other browser-based load testing options.
-        </p>
-        <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_1_SaaS_vs_DIY.gif" class="case-study-image-large" alt="">
-          <figcaption>Fig. 3.1: Browser-based load testing options</figcaption>
-        </figure>
-        </br>
-        <p>
-          There are two typical paths Boost might choose. The first is a cloud-based software as a service solution, like the Flood platform mentioned earlier. The second is a do-it-yourself approach, tasking the Boost engineers with building their own browser-based load testing tool.​
-        </p>
-        </br>
-        <p>
-          Let's examine the tradeoffs for a cloud-based SaaS solution first. A platform like Flood is highly scalable, able to simulate tens or even hundreds of thousands of concurrent users. It's also generally very easy to use. It's usually a hosted platform, meaning the end user doesn't need to configure or deploy any infrastructure. This makes the overall process quite straightforward. However the downside is cost. A single test can cost thousands of dollars. And a small-to-medium sized company like Boost may have a difficult time justifying spending that much on yet another SaaS product.​
+          These testing tools simulate users by generating requests (e.g., HTTP(S), AJAX, DNS) using a script. A script is a
+          collection of requests made in a particular order, sometimes simultaneously or with pauses between them, to simulate how
+          a user would consume the API. Test performance measures the response time and inspects the response code but does not
+          make further use of response. The tool returns whether a successful response was received and how long it took to get
+          it. Recall that protocol-based tools do not have a browser or other application to use the responses.
         </p>
         <br />
         <p>
-          Turning to a DIY approach, a major benefit here is that, once the platform is built, operation is much cheaper. You'll only pay for the underlying cloud infrastructure, no ongoing platform fees. However, building a distributed load testing platform requires a lot of engineering hours. Those engineering hours are expensive and would be hard to justify for a company of Boost's size. Furthermore, Boost doesn't have a huge engineering team. To build a distributed load testing tool from scratch, they'll have to pull engineers off projects that are central to their core business.​
+          The open-source solutions do not have a built-in way to distribute the load generation geographically - all requests are
+          sent from the server the solution is run from. While a user can manually set up instances of these solutions in
+          different locations, it is a time-consuming, complicated process. Instead, the companies that created the open-source
+          tools provide managed cloud-based SaaS products with this capability.
         </p>
-        <br/>
+        <br />
         <p>
-          Neither of these options seems like a good fit for Boost. But what if there were another option? That’s where we think Monsoon fits in.
+          While developers can easily leverage these tools to perform API load testing, they must consider the service limit
+          tradeoffs. Because these companies manage the deployment and operation of the testing tools worldwide, they impose
+          limits on the number of virtual users, test duration, and data retention (Table 1).
         </p>
-        <figure>
+        <br />
+        <!-- <figure>
           <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
-          <figcaption>Fig. 3.2: Monsoon's niche in the browser-based load testing space</figcaption>
-        </figure>
-        <br/>
+          <figcaption>Table 2.1: Cloud-based load testing tools</figcaption>
+        </figure> -->
         <p>
-          Monsoon glues together all the resources needed to create a near real time load testing platform, then deploys it directly to Boost's AWS account. (Real time refers to something the end user would perceive as instantaneous.)
+          This restricts load testing to a particular scale and limits the ability to perform soak testing, which checks for
+          issues that only appear after a longer duration. Additionally, the companies storing test data on behalf of the customer
+          will eventually purge that data. While the user can retrieve and store the data, it typically can not be reloaded into
+          the managed service to compare with any new tests.
+        </p>
+        <br />
+        <h3>2.1 Constellation</h3>
+        <p>To address these limitations, we built Constellation. Constellation is 
+          an open-source, serverless, end-to-end framework that aims to simplify 
+          the challenges of geographically distributed API load testing.
+        </p>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>
+            Table 2.2: Cloud-based load testing tools including Constellation
+          </figcaption>
+        </figure> -->
+        <br />
+        <p>
+          The Constellation framework is operated from the command line given a user-generated configuration file and test script.
+          The configuration file contains the number of virtual users (VUs) to follow the test script, the length of time those
+          VUs should repeat the script, and what geographical region(s) those VUs should be located in. The test script would
+          include what endpoints to hit in what order, along with any pauses or other actions necessary to simulate a user’s
+          workflow.
+        </p>
+        <br />
+        <p>
+          This information is used to deploy several components using AWS services including S3, Timestream, Lambda, and ECS. The
+          components include load generating and data aggregation software to the given remote region(s), as well as database and
+          visualization services to the user's desired home region. Once the test has been completed those remote deployments are
+          torn down, leaving the database and visualizer available until the user removes them.
+        </p>
+        <h3>2.2 How Constellation compares</h3>
+        <br />
+        <p>
+          Let's examine the tradeoffs with using a cloud-based SaaS solution first. As these are managed services, the end user is
+          not responsible for configuring or deploying any infrastructure. Not needing to set up the infrastructure makes the
+          overall process more straightforward. From Table 1 we can see that there is a range of values for virtual user limit,
+          max test duration and data retention. Next we’ll discuss how Constellation compares in these categories.
+        </p>
+        <br />
+        <h4>Virtual User Limit</h4>
+        <br />
+        <p>
+          Load testing an API requires enough virtual users to generate the desired number of requests per minute. Constellation
+          has been tested up to 10,000 VUs.
+        </p>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>
+            Table 2.3: Virtual User Limit Duration between tools
+          </figcaption>
+        </figure> -->
+        <p>
+          For the managed services that have a lower virtual user limit (e.g. Artillery, k6 Cloud) they can make more frequent
+          requests to achieve the same number of requests per minute at a cost of higher memory usage. For example, if a load test
+          runs with 3,000 virtual users, and each makes a request every 30 seconds (2 requests per minute), that's 6,000 requests
+          per minute or 100 requests per second. Reducing virtual users to 1,000 while increasing the request interval to every 10
+          seconds also achieves 6,000 requests per minute.
+        </p>
+        <br />
+        <p>
+          3000 VUs * 2 requests / minute = 6000 requests / minute
+        </p>
+        <p>
+          1000 VUs * 6 requests / minute = 6000 requests / minute
+        </p>
+        <br />
+        <h4>Max Test Duration</h4>
+        <br />
+        <p>
+          Soak testing, as previously mentioned, is continuously load testing a system over a significant period (several hours)
+          to validate system behaviors and uncover bugs and reliability issues. The max test duration affects whether it is
+          possible to perform soak testing. Constellation and Artillery Pro have no limits on the max test duration, while
+          Blazemeter and K6 cloud are limited to 5 hours and 1 hour, respectively.
+        </p>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>
+            Table 2.4: Max Test Duration between tools
+          </figcaption>
+        </figure> -->
+        <br />
+        <h4>Data Retention</h4>
+        <br />
+        <p>
+          The cloud-based SaaS solutions retain data on a rolling subscription basis. Once a subscription ends, however, the data
+          is automatically deleted, or there may be an option to purchase data retention.
+        </p>
+        <br />
+        <p>
+          Constellation's data retention period is twelve months, AWS's maximum memory store retention period. The tradeoff is
+          that Constellation can keep data for an extended period without paying a monthly subscription. Still, the AWS Timestream
+          database will have monthly fees based on the amount of data stored.
+        </p>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>
+            Table 2.5: Data Retention between tools
+          </figcaption>
+        </figure> -->
+        <br />
+        <h4>Constellation Summary</h4>
+        <br />
+        <p>
+          In comparing Constellation with the existing cloud solutions in terms of feature parity, Constellation does not perform
+          WebSocket testing, parallel testing with multiple test scripts, or regression analysis of testing results. The
+          visualizer dashboard displays a limited set of metrics, and scheduled tests are not a built-in feature.
+        </p>
+        <br />
+        <p>
+          Constellation is for developers who do not require the additional features a cloud-based SaaS solution provides.
+          Constellation is a flexible, scalable open-source solution for developers where cloud-based tiered SaaS solutions are
+          too restrictive, excessive, or costly.
+        </p>
+        <br />
+        <p>
+          Constellation reduces the difficulty of load testing APIs with consumers located in disparate regions. Its purpose is to
+          aid developers in confirming that an API can handle expected workloads at scale before any issues reach production
+          environments.
+        </p>
+        <br />
+        <p>
+          Constellation can simulate loads of up to 10,000 concurrent users and tests can be of any duration. Developers can also
+          see their load test results visualized in a dashboard.
+        </p>
+        <!-- Section 3-->
+        <h2>3 Design Decisions</h2>
+        <br />
+         <h3>3.1 Virtual Users vs. Requests Per Second</h3>
+        <p>
+          There are two main approaches to API load testing, non-scripted and scripted. Non-scripted testing is relatively simple. The test hits a single endpoint with a specified number of requests in a given timeframe (typically defined using requests per second). The results are relatively straightforward - it shows how performance metrics, such as response times and values, vary given a strictly defined load on an endpoint or a system.
+        </p>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 3.1: Overview of non-scripted testing hitting a single endpoint</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          While this can be useful for finding performance issues (e.g. increased response times as the requests per second increase) with a single endpoint it doesn’t simulate real-world use particularly well. APIs rarely consist of single endpoints that operate in a vacuum. One endpoint’s performance could affect the performance of another for various reasons, such as being a direct prerequisite to its use or consuming shared resources while hosted on the same hardware. 
         </p>
         <br/>
         <p>
-          Thanks to its serverless nature, Monsoon is just as easy to use as existing cloud-based SaaS solutions like Flood. Additionally, since Monsoon would be deployed directly to the Boost AWS account, Boost retains ownership of its data.​
+          Scripted tests, on the other hand, test an API for a defined workflow. A simulated user (known as a virtual user, or VU) performs the scripted operations. For example, it may make requests to log in, fetch user data, send data to be written to a database, and finally log out. Those requests can have pauses in between individual requests or be made simultaneously, whatever most accurately represents how a user will interact with the API. The desired load is then defined by adjusting the number of concurrent VUs (e.g. how does a system perform with 10,000 users performing this set of actions). 
         </p>
         <br/>
         <p>
-          However, Monsoon is neither as scalable nor as feature-rich as other cloud-based SaaS products or highly-customized DIY solutions. Monsoon is an open source solution intentionally optimized for small- to medium-sized companies that want to load test their SPA for up to 20,000 concurrent users.​
+          Setting up a scripted test is a much more involved endeavor, however. Developing the framework for simulating a user requires significant effort in order to avoid restrictive resource requirements. Simulating 10,000 users should not require 10,000 devices, and the less overhead a virtual user takes, the more can be generated. Additionally, developing the test itself (how many users will perform what actions) necessitates a clear understanding of the API’s use case, it is very easy to perform a test that does not accurately represent how a user will actually consume the API.
         </p>
         <br/>
         <p>
-          The good news is that the Monsoon team has already invested the engineering hours, so you don't have to. We also charge no platform fees. You only pay the AWS charges stemming from the infrastructure spun up to run your test. This makes Monsoon significantly more affordable than either cloud-based SaaS solutions or DIY approaches.​
+          Despite the additional complexity, Constellation uses scripted testing. Scripted testing is a significantly more realistic way to test an API as a whole, and this allows Constellation to more accurately simulate users consuming an API simultaneously around the world.
         </p>
         <br/>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 3.2: Overview of a scriptable virtual user</figcaption>
+        </figure> -->
+        <br />
+        <h3>3.2 VU Implementation</h3>
+        <br />
+        <p>
+          Virtual Users (VU) are the backbone of a scripted load testing approach. A VU must simulate a user as closely as possible while still operating as efficiently as possible. The less resources it takes to simulate a single user, the more VUs can be generated with the same infrastructure. The VUs should also be independent of one another - if one VU encounters an error or has poor performance, it should not impact any of the other VUs. The load generation tool is programmed using JavaScript, and there are several ways to implement VUs in JavaScript, including promises, child processes, and worker threads.
+        </p>
+        <br/>
+        <p>
+          Node.js worker threads enable parallel JavaScript threads within a single Node.js process. We disregarded worker threads early on because they are primarily a way to take advantage of multicore processors to perform CPU intensive tasks asynchronously. Input-output tasks (such as making HTTP requests) are more efficiently handled by the Node.js promise implementation. Also, the number of worker threads typically depends on the number of available CPU cores, but such hardware details are generally not provided by cloud service providers. 
+        </p>
+        <br/>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 3.3: Nodejs worker threads overview</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          Child processes generate independent Node.js processes, which is an excellent simulation of independent VUs. Each VU would operate entirely separately and be independent of any other VU. However, child processes each have their own provisioned memory and depend on the CPU’s process management. This introduces significant performance overhead which would drastically reduce the number of VUs a single load generator could simulate.
+        </p>
+        <br/>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 3.4: Nodejs child processes overview</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          Ultimately we decided to use the built-in Node.js promise implementation. Node.js abstracts promise execution into independent threads, allowing for highly performant asynchronous operation of non-CPU dependent processes (HTTP requests, for example). While this does mean that two requests cannot execute at the same time (at least for a given instance of the load generator), they complete within a few CPU cycles of each other, which is sufficient for load testing purposes.
+        </p>
+        <br/>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 3.5: Virtual users are generated with promises in node js</figcaption>
+        </figure> -->
+        <br />
+        <h3>3.3 Results Database</h3>
+        <br />
+        <p>
+          We selected a time series database, which is a database optimized for handling large amounts of time-stamped data, to store the runtime data from the executed test scripts and individual API call data coming out of the data aggregator. It is a write-optimized database type, which in our use case is ideal as database writes are a core part of our application. We are working with data that benefits from a database that can handle a massive amount of write requests and is built around keeping track of data that is time sensitive. Timestream is the AWS offering and fits naturally within Constellation’s overall architecture.
+        </p>
+        <br/>
+        <p>
+          Some trade-offs come with working in a time series database, particularly Timestream. Timestream could only handle one measurement value that was not a string at a time. We could input more than one integer into the database as a string through the dimensions object, which is an object required for formatting data to be inserted into a Timeseries table. However, if we wanted to sort data within a table by one of the columns that were intended to be an integer, the data would be sorted by a string rather than an integer. This forces us to sort by time to see sequential information in regional calls or test tables rather than being able to sort data sequentially by any available column in the table.
+        </p>
+        <br/>
+        <p>
+          Timestream allows for batch write requests, which had one particular benefit that aided both development and our users. Batching write requests reduces the cost of writing data to Timeseries by a rather large margin. The trade-off is that the batch write requests were limited to only 100 records per request. This limitation added development time to the project because extra steps were needed to ensure that the data was sent in 100 record chunks. In addition, these chunks would, at times, be rejected by Timestream's rate limiter and throw a throttling exception without clear instructions on how to avoid the exception. The solution to this problem was to create a recursive function that resends the data until Timestream returns an OK status. This does mean that the amount of data that the data aggregator could handle per second was reduced.
+        </p>
+        <br/>
+        <p>
+          Despite some minor quirks of Timestream, we ultimately chose to use this database because the benefits far outweighed the costs. We needed a database that could handle a large number of write requests that were centered around time-sensitive data and were a part of the AWS ecosystem. Even though there were some small inconveniences they were outshined by Timestream being a fast, cost-effective, AWS integrated solution for our data storage needs.
+        </p>
+        <br/>
+        <h3>3.4 Data Collection</h3>
+        <br />
+        <p>
+          Load testing can generate a huge amount of data. Responses can vary from a simple 200 OK to a large content download. Even for small or reduced responses, the sheer number of responses produced can be daunting. For example, a ten-minute test involving 5000 VUs that each make two requests every six seconds produces a million responses.
+        </p>
+        <br/>
+        <p>
+          Because load testing tools generate so much data, the tool can be seen conceptually as a large data pipeline. There are two common approaches to managing a data pipeline, ETL and ELT. These acronyms define the order in which three processes, Extract, Transform, and Load, occur.
+        </p>
+        <br/>
+        <ul>
+          <li>Extract: collecting raw data from a data source</li>
+          <li>Transform: processing and converting that raw data into a usable form</li>
+          <li>Load: putting the transformed data into the target system</li>
+        </ul>
+        <p>
+          The difference between ETL and ELT is when transformation takes place. An ETL pipeline will transform the data prior to loading it into the target. Processing the transformation results in a longer loading process but allows a faster analysis after the data transfer is complete. As a result, the raw data is lost and only the transformed data is stored. If a different transformation is desired later, the raw data will need to be retrieved again.
+        </p>
+        <br/>
+        <p>
+          An ELT pipeline loads the raw data directly into the target, and the target system is responsible for performing any transformation it requires. This allows transformation to be performed as needed on subsets of data rather than on a complete collection of data and allows for different transformations to be performed at any time, but usually increases the total data loaded into the target.
+        </p>
+        <br/>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 3.6: ETL Data Pipeline</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          The ELT approach was taken for Constellation’s primary data pipeline that extends from the load generation service to the time series database. The data pipeline process looks something like this: for a given VU running through the test script, a test object containing the measured values from that test (runtime, call response times, etc.) is created. For example, 1 VU running a script that takes 10 seconds for a 60-second test will generate 6 test objects. Those test objects are all collected by the data aggregation service and sent to the time series database. The complete data set is then available for inspection by the user, either using the built-in Constellation visualizer or using other third-party software to query the database.
+        </p>
+        <br/>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 3.7: ELT Data Pipeline</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          While this results in significantly more data being stored in the database, it allows users to access the data directly and perform any transformations they need on a Constellation test’s results, in real-time, without any loss of data to abstraction or any processing delay due to a generic transformation process.
+        </p>
+        <br/>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 3.8: Overview of ETL with Constellation Framework Components</figcaption>
+        </figure> -->
+        <br />
         <!-- Section 4-->
-        <h2>4 Design Decisions</h2>
+        <h2>4 Constellation’s Architecture</h2>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 4.1: Constellation Architecture Overview</figcaption>
+        </figure> -->
         <br />
         <p>
-          Early on, we made two design decisions that strongly shaped the Monsoon framework. The first was choosing to focus on high scalability. The second was striving to provide near real time results to engineers using Monsoon.
+          The Constellation system architecture consists of several components deployed across the user’s local system and the cloud. The primary goal of Constellation is to generate load from globally distinct locations, so a global cloud computing service such as AWS is an ideal fit for deploying Constellation. Because the system varies by location the components and their responsibilities will be introduced by location, the user’s local system, a “home” region, and several “remote” regions.
         </p>
-        </br>
-        <h3>4.1 Scalability</h3>
-        <p>We set out to build a framework able to simulate as many users as possible, for as long as possible, as cheaply as possible. To accomplish this, we focused on the scalability of the load generation engine and of the data pipeline.​</p>
         <br/>
-        <h4>Optimizing the Load Generation Engine</h4>
-        <figure>
-          <img src="assets/images/4-design_decisions/engine_figure.svg">
-          <figcaption>Fig. 4.1: How Puppeteer stacks up against Selenium</figcaption>
-        </figure>
+        <p>
+          An npm package containing the deployment and visualization functionality is installed locally. The Constellation cloud architecture includes a “home” region and some number of “remote” regions. The home region is used to orchestrate the test and store the test results, while the load is applied from the remote regions. 
+        </p>
         <br/>
-        <p>​We had several options for simulating virtual users via headless browser instances. Selenium is the industry default. One Selenium app instance is able to simulate 5 virtual users. We compared this to Google's Puppeteer discussed earlier. One Puppeteer app instance is able to simulate 20 virtual users.</p>
-        <p>This difference in simulated users per app instance is hugely important. Since each app instance requires its own execution environment, increasing the number of simulated users per app instance reduces the compute resources you need. And since AWS's billing model is "only pay for what you use", using compute resources more efficiently directly leads to cost savings.</p>
-        <p>By choosing Puppeteer over Selenium to generate load, we were able to test 4 times as many users for the same price.</p>
+        <p>
+          Specifically, several data stores, including a file storage system, a key-value database, and a time series database, are deployed to the home region along with orchestration functions. Remote regions are deployed with load generation containers and a data aggregation container.
+        </p>
         <br/>
-        <h4>Optimizing the Data Pipeline</h4>
-        <figure>
-          <img src="assets/images/4-design_decisions/elt_defs.svg">
-        </figure>
-        <p>Because simulating virtual users and extracting session metrics generates so much data, Monsoon naturally uses a pipeline to move data from one point to another in our system. Two common data pipeline patterns are ELT and ETL. The ‘E’ stands for Extract, the ‘L’ stands for Load and ‘T’ stands for Transform.</p>
-        <p>The choice of one pattern over the other has significant impact on scalability.</p>
-        <br/>
-        <h5>An ELT Pipeline</h5>
-        <figure>
-          <img src="assets/images/4-design_decisions/elt_diag.svg">
-          <figcaption>Fig. 4.2: An ELT data pipeline’s tradeoffs</figcaption>
-        </figure>
-        <br/>
-        <p>ELT is the current industry standard. With ELT, we load all the raw data into storage before making any changes to that data. Benefits to this approach include simplicity and flexibility. Because all the data is stored together, all transformations can be done in one place. And since you hang on to all the raw data, you're free to run further analyses and change the data's final form at any point in the future.​</p>
-        <p>But ELT has drawbacks as well. You need to transmit all data from the extraction point into storage. This can result in substantial bandwidth costs and transmission times. Furthermore, once the data is loaded into storage, you'll need to pay ongoing storage fees.</p>
-        <br/>
-        <h5>An ETL Pipeline</h5>
-        <figure>
-          <img src="assets/images/4-design_decisions/etl_diag.svg">
-          <figcaption>Fig. 4.3: An ETL data pipeline’s tradeoffs</figcaption>
-        </figure>
-        <br/>
-        <p>ETL is also an industry standard. With ETL, we transform the data between the extraction and storage points, so that we're only storing data that's already been transformed. Benefits to this approach include reduced transmission times and costs. You reduce the volume of data right after the extraction step, thus reducing the time and bandwidth costs associated with moving that data into storage. And since you're not storing your entire raw data set, storage costs are naturally reduced.​</p>
-        <p>But there are cons to ETL. The first is transformation complexity. Your data may require transformations at multiple steps along the data pipeline. This can become technically complex. The ETL pattern also lacks flexibility. Since we're only storing transformed data, we effectively lock ourselves into a final form of the data before starting the pipeline.</p>
-        <p>Another concern with ETL is data integrity. If something goes wrong in the pipeline, causing you to lose all or part of the transformed data, you don't have raw data to fall back on. The data would need to be regenerated, which may or may not be possible.</p>
-        <br/>
-        <figure>
-          <img src="assets/images/4-design_decisions/etl_overview.svg">
-          <figcaption>Fig. 4.4: Monsoon is an ETL pipeline</figcaption>
-        </figure>
-        <br/>
-        <p>Ultimately we found the ETL pattern a better fit for our use case. We were willing to deal with the transformation complexity, and final data shape lock-in actually wasn't a problem for us. Every load test Monsoon runs shows the same metrics, so the final shape of the data never changes.</p>
-        <br/>
-        <figure>
-          <img src="assets/images/4-design_decisions/etl_table.svg">
-          <figcaption>Fig. 4.5: ETL is a better fit for Monsoon</figcaption>
-        </figure>
+        <h3>4.1 Local</h3>
         <br />
-        <p>Let's quantify this difference by looking at database writes. Say we run two different load tests - each has 4000 virtual users and has the same duration and test script. If Monsoon's data pipeline were to follow the ELT pattern, the number of writes required increases by a factor of about 800. And to generate the same final graph in the local Weather Channel dashboard, 2 megabytes of information in an ETL pipeline would need to be 24 gigabytes of information in an ELT pipeline.</p>
-        <p>As we mentioned earlier, AWS uses a billing model of “only pay for what you use”. Therefore if we use less storage and transmit less data, it costs less. ​So holding the infrastructure budget constant, a user is able to run load tests that are many orders of magnitude larger since we designed Monsoon with an ETL data pipeline.​</p>
-        </br>
-        <h3>4.2 Near Real Time</h3>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 4.2: Constellation Local Components</figcaption>
+        </figure> -->
         <br />
-        <p>Now let's turn to the design decisions we made so that Monsoon can display results in near real time.​</p>
-        <p>First let's clarify some terminology. <strong>Real time data</strong> is data that's collected, processed and analyzed on a continual basis. The resulting information should be available to the end user immediately after being generated.​</p>
-        <p>And <strong>near real time</strong> is just real time, but with a delay introduced beforehand. Teams view a situation as it existed in the recent past rather than as it is right now. (Note that there isn't a precise cut off for what is or isn't considered near real time.)​</p>
+        <p>
+          The local system is used to deploy the Constellation cloud architecture and host a test result visualizer. Using Constellation requires the installation of the npm package on the user’s local system. The package includes commands for the set-up and tear-down of resources in the home and remote regions and a locally deployed visualization tool that accesses the test results in a time series database.
+        </p>
+        <br/>
+        <p>
+          The set-up and tear-down commands depend on two user-generated files, a JSON file that defines the test configuration and a JavaScript file that defines the script a VU should follow when testing. The AWS CLI and CDK must also be installed, including the set-up of a local AWS profile. The AWS CDK pulls account metadata from the default AWS profile and then deploys the testing infrastructure.
+        </p>
+        <br/>
+        <h3>4.2 Home Region</h3>
         <br />
-        <h4>Why Near Real Time?</h4>
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 4.3: Constellation Home Region Components</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          Once Constellation is installed on the local system, it can be used to deploy resources in the home region to orchestrate testing and store the test results. The home region (defined in the config.JSON) hosts the file storage, key-value database, time series database, and AWS orchestration lambdas.
+        </p>
         <br/>
-        <p>Load tests can be really long. It's not uncommon to run a test for hours or days. Because of this, Monsoon can handle tests of arbitrary length – the limiting factor is only the user's AWS budget.​</p>
-        <p>But we don't want our users to have to wait until a test completes before they see results – we'd like them to see results as soon as possible.​</p>
-        <p>This means that Monsoon needs to extract, transform and load data into the database on a regular basis so it can be queried and displayed on the locally-hosted dashboard.​</p>
+        <p>
+          The file storage service uses AWS S3  for simple, region-agnostic, role-based file access to hold the JavaScript test script and make it available to the remote load generation containers.
+        </p>
         <br/>
-        <h4>Near Real Time Pros and Cons</h4>
+        <p>
+          A key-value database orchestrates the timing of tests and stores arrays of remote regions at various stages of deployment. Once every remote region is ready to begin testing, Constellation generates a test start timestamp and stores it for the load generation containers. The orchestration uses Amazon DynamoDB to integrate with the other AWS services.
+        </p>
         <br/>
-        <p>But building Monsoon as a near real time framework has pros and cons.</p>
-        <figure>
-          <img src="assets/images/4-design_decisions/near_real_time_webs.svg">
-          <figcaption>Fig. 4.6: Monsoon’s near real time dashboard prevents this</figcaption>
-        </figure>
+        <p>
+          Remote regions communicate with the orchestration database through AWS Lambda functions. The remote architecture invokes the lambda to synchronize testing by modifying and retrieving test status booleans and timestamps from the key-value database.
+        </p>
         <br/>
-        <p>On the pro side, engineers can monitor their tests in near real time, spotting issues as they come up rather than waiting until the entire test completes. Additionally, if the load test is important enough, it can become something of an event at the company running it. While researching our project, we actually came across stories of large teams reserving conference rooms, ordering food and watching the load test results roll in live.​</p>
-        <p>But a major drawback to implementing a near real time data pipeline is the complexity. There are a lot of components, and it's technically challenging to coordinate all of them so as to avoid losing or double counting data points. We'll return to this complexity later.</p>
-        <p>Now let's move on to examine Monsoon's architecture in greater detail.</p>
+        <p>
+          A time series database stores the results from the load tests. These results include the latency of individual API requests and the duration of individual runs through the script. They can be queried to find the average latency or success of a particular type of call, the average runtime of the script, the ratio of successes to failures, and more.
+        </p>
+        <br/>
+        <h3>4.3 Remote Regions</h3>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+          <figcaption>Fig. 4.4: Constellation Remote Region Components</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          The remote regions are the source of load during testing. Each remote region hosts some number of load-generation containers (depending on the desired number of VUs) and a single data aggregation container. These containers depend on several settings defined in the configuration and test script files.
+        </p>
+        <br/>
+        <p>
+          Docker containers standardize the code execution environment and are deployed using the AWS Elastic Container Service (ECS). This serverless deployment significantly eases deployment and reduces unused system resources.
+        </p>
+        <br/>
+        <p>
+          The number of load generators deployed in a region depends upon the total number of VUs desired in that region. Because a container deployment is only guaranteed a limited amount of memory and CPU resources, each load generator is limited to 200 VUs to provide processing overhead for the test script. Still, the amount of processing beyond making HTTP requests should be limited when writing the script in order to prevent blocked requests. For example, an API that uses the response from one call to make another should have that call explicitly defined in the test script, not calculated from the first call’s response. 
+        </p>
+        <br/>
+        <p>
+          The data aggregator sends the results from all the generators in batches and provides a single data stream to the time series database in the home region.
+        </p>
         <br/>
         <!--Section 5-->
-        <h2>5 Monsoon's Architecture</h2>
+        <h2>5 Components</h2>
         <br/>
-        <figure>
+        <!-- <figure>
           <img src="assets/images/5-architecture/slide43.svg">
-          <figcaption>Fig. 5.1: Monsoon’s load generation architecture</figcaption>
-        </figure>
+          <figcaption></figcaption>
+        </figure> -->
         <br/>
-        <p>The purpose of our load generation architecture is to create a given number of virtual users, have them perform scripted actions on the target website or web app, and record metrics about those actions.​</p>
+        <h3>5.1 CLI</h3>
         <br/>
-        <h3>5.1 Load Generation</h3>
-        <br/>
-        <figure>
+        <p>
+          The user interacts with the Constellation framework via the CLI. Once the user has created the configuration file and the test script, 
+          the user can then initialize infrastructure and execute the test accordingly. 
+          More specifically, the configuration file is used to determine the number of VUs and the number of regions the infrastructure needs to accommodate, 
+          and the test script, containing details of the user behavior to simulate, is uploaded to an S3 bucket to be later used by the load generators.
+        </p>
+        <br />
+        <p>
+          The CLI also provides a command to access the custom visualizer to view the test results, in addition to a command to teardown any cloud infrastructure used to set up the test.
+        </p>
+        <br />
+        <!-- <figure>
           <img src="assets/images/5-architecture/slide44.svg">
-          <figcaption>Fig. 5.2: Monsoon’s load generation app and its three key components</figcaption>
-        </figure>
+          <figcaption>Fig. 5.2: Overview of roles of the user-created files relative to the CLI</figcaption>
+        </figure> -->
         <br/>
-        <p>At the core of our load generation architecture is a Node app. The app’s critical components are:​</p>
-        <ul>
-          <li>Weather Station</li>
-          <li>A user script</li>
-          <li>Runner.js</li>
-        </ul>
+        <h4>5.1.2 Streamlining Deployment with AWS CDK</h4>
         <br/>
-        <h4>Weather Station</h4>
+        <p>
+          The primary goal of the CLI is to ensure that all components of the framework are deployed with minimal user input. Given that a large portion of our infrastructure is user configurable 
+          (ie: home region, remote regions, and variable container number per region), the primary challenge is how to streamline deployment with numerous user-configurable parts. 
+        </p>
         <br/>
-        <p>Engineers can use the Weather Station library to write their test script. Weather Station makes use of methods from the Performance API built into browsers and gives engineers a way to write code to measure how long individual user actions take.​</p>
+        <p>
+          Our first choice was using AWS Cloud Formation - this service uses YAML files containing configuration details for the various infrastructure components. 
+          A single AWS CLI command can then be leveraged to deploy the required infrastructure. 
+          However, Cloud Formation is ideal for deployments with a configuration that generally stays consistent from one user to another. 
+          As our framework requires an infrastructure heavily configured by the user, incorporating business logic to create YAML files according to user 
+          configuration would have presented a significant challenge. 
+        </p>
         <br/>
-        <h4>Test Script</h4>
+        <p>
+          As such, the Constellation framework leverages the AWS Cloud Development Kit (CDK). 
+          This is essentially infrastructure-as-code which is an abstraction of Cloud Formation. 
+          A YAML file is still synthesized from the CDK, however business logic can be more readily integrated. 
+        </p>
         <br/>
-        <p>Our next load generation component is the user's test script. It's a set of instructions describing the exact actions the headless browser instances should take and in what order. Combined with Puppeteer, this test script is what allows Monsoon to program a virtual user.</p>
-        <p>For example, returning to the engineers at Boost Health, their user test script might instruct the headless browser instance to load the main Boost Health webpage, wait two seconds, load a product details page, wait 10 seconds, then click the "Add to Cart" button.</p>
+        <p>
+          In our framework, the business logic inspects the user-generated configuration file to determine the location of the home region, remote regions 
+          & corresponding number of VUs for each region for the CDK to gather as inputs. 
+          From this, the CDK synthesizes the required Cloud Formation YAML files, which are then used by AWS directly for deployment.  
+        </p>
         <br/>
-        <h4>Runner</h4>
+        <h3>5.2 Load Generation</h3>
         <br/>
-        <p><code>Runner.js</code> is a coordination script. It creates 20 headless Chrome instances controlled by Puppeteer to simulate 20 virtual users. <code>Runner.js</code> then instructs each virtual user to execute the commands listed in the user's test script and stores the resulting session metrics for each of those virtual user actions.​</p>
-        <p>To summarize, our Node app creates virtual users, instructs them to perform actions, and saves metric data about the actions taken.​</p>
-        <p>But how do we actually run the app? We use AWS ECS and Fargate.</p>
+        <p>
+          As a load-testing framework, Constellation needs to simulate VUs that repeatedly execute the user-defined script, 
+          generating requests and passing the resulting metrics to the data aggregation container.
+        </p>
+        <br />
+        <p>
+          Initially, a load generator updates the orchestrator database with its deployment status and retrieves the test script. 
+          This process then polls the orchestration lambda for a start time that the tests will use for execution in an effort to synchronize testing across regions.
+        </p>
+        <br />
+        <p>
+          During test execution, Constellation creates VUs and repeatedly runs the test script. Each test script run generates a JavaScript test record object 
+          that contains the start time and runtime for the script, as well as the start time, latency, and other defining characteristics of the HTTP calls made during that run, as defined below:
+        </p>
         <br/>
-        <h4>Fargate and ECS</h4>
-        <br/>
-        <figure>
-          <img src="assets/images/5-architecture/slide49.svg">
-          <figcaption>Fig. 5.3: Monsoon’s load generation app runs on Fargate and uses ECS</figcaption>
-        </figure>
-        <br/>
-        <p>AWS Fargate is a serverless, pay-as-you-go compute engine that allows you to focus on building applications without managing servers. In effect, it's an AWS service that runs containerized applications.</p>
-        <p>To run our app and scale to more than 20 users, we containerized our Node app and passed it to ECS, the Elastic Container Service. ECS is used for container orchestration.​</p>
-        <p>For every block of 20 virtual users we wish to simulate, ECS spins up an additional Fargate instance to execute our containerized Node app.​ For example, to simulate 4000 users, ECS spins up 200 Fargate instances, each of which each of which executes one instance of our containerized app.​</p>
-        <p>So now that our load generation process has yielded session data for our virtual users, what do we do with it?</p>
-        <br/>
-        <h3>5.2 Transformation</h3>
-        <br/>
-        <figure>
-          <img src="assets/images/5-architecture/slide51.svg">
-          <figcaption>Fig. 5.4: Monsoon’s transformation architecture</figcaption>
-        </figure>
-        <br/>
-        <p>To answer this, let's take a closer look at our Transformation architecture. At a high-level, the Transformation architecture takes the session metric data stored on each Fargate instance, transforms it into a time series data format, then loads it into a time series database.​</p>
-        <p>A key piece of the Transformation component is our normalization logic. Before we dive into the details, let's clarify our definition of "normalization" since it can be a slippery term in the data science world.</p>
-        <p><strong>What is “normalization” exactly?</strong></p>
-        <p>We consider it a pre-processing step that facilitates data aggregation. When we normalize raw data, we're taking multiple data points with different raw timestamps and combining them into a single data point with one normalized timestamp. If you think of calculating a moving average, that's a good mental model.​</p>
-        <br/>
-        <figure>
+        <!-- <figure>
           <img src="assets/images/5-architecture/arch_normalizer_process.gif">
-          <figcaption>Fig. 5.5: Think of “normalization” as calculating a moving average</figcaption>
-        </figure>
+          <figcaption>Fig. 5.3: A test record object is produced every time one Virtual User executes the test script</figcaption>
+        </figure> -->
         <br/>
-        <h4>Normalizer.js</h4>
+        <p>
+          These test record objects are sent to the data aggregator in batches every 10 seconds. Once the test duration ends, 
+          Constellation sends a final batch of tests to the data aggregator and a post-processing function sends a signal indicating that the load generator container is ready for teardown.
+        </p>
         <br/>
-        <p>Earlier we mentioned that the <code>runner.js</code> file in our Node app stores session metrics from every virtual user action. We're storing these metrics by temporarily saving them to the local filesystems of the Fargate instances.</p>
-        <br/>
-        <figure>
+        <!-- <figure>
           <img src="assets/images/5-architecture/slide52.svg">
-          <figcaption>Fig. 5.6: Monsoon’s Normalizer.js script transforms metrics and moves them to an S3 bucket</figcaption>
-        </figure>
+          <figcaption>Fig. 5.4: Every load generator sends a collection of test objects to the data aggregator every 10s</figcaption>
+        </figure> -->
         <br/>
-        <p>Alongside our load generation scripts, the Node app also runs a file called <code>Normalizer.js</code>. <code>Normalizer.js</code> polls the Fargate instance's local filesystem for new session metric data every 15 seconds. The <code>Normalizer.js</code> code applies transformations to any data it finds, then moves the transformed data to an S3 bucket for more permanent storage. This normalization step is necessary because the aggregation step that follows requires uniform timestamps.​</p>
-        <p>So the core logic of <code>Normalizer.js</code> groups the session metric data by time window. And a happy side effect of our normalization process is that we preserve statistical significance while minimizing data size.​</p>
+        <h3>5.3 Data Aggregation</h3>
         <br/>
-        <h4>S3 Bucket</h4>
-        <br/>
-        <figure>
-          <img src="assets/images/5-architecture/slide54.svg">
-          <figcaption>Fig. 5.7: Monsoon’s S3 bucket stores normalized test results data</figcaption>
-        </figure>
-        <br/>
-        <p>Now let's examine our destination S3 bucket more closely.</p>
         <p>
-          The data processed by <code>Normalizer.js</code> is saved in an S3 bucket. AWS Simple Storage Service (AWS S3) is a serverless and highly scalable object storage service. We temporarily stage the data in S3 for two reasons:
+          The data aggregation code acts as a funnel to consolidate completed test results from the load generators in the same region and pass them into an AWS Timestream database in the home region. 
         </p>
-        <br/>
-        <ol>
-          <li>
-            <p>
-              It serves as temporary storage for the normalized test results. For any given action and timestamp, data can't be aggregated until the metrics of all virtual users have been normalized. We use the S3 bucket to stage these results until the Transformation engine has all the files needed to start the aggregation process; and
-            </p>
-          </li>
-          <li>
-            <p>
-              It decouples the Transformation process from the Load Generation process. A test with thousands of users can generate such a massive amount of data that it overwhelms the Transformation component. The S3 bucket then acts as a dam, stopping the flood of data and allowing the Transformation engine to process the data at its own pace.
-            </p>
-          </li>
-        </ol>
-        <br/>
-        <figure>
-          <img src="assets/images/5-architecture/s3_dam.svg" class="case-study-image-large">
-          <figcaption>Fig. 5.8: Monsoon’s S3 Bucket decouples Transformation from Load Generation</figcaption>
-        </figure>
-        <p>Once metrics sent by <code>Normalizer.js</code> start hitting the S3 bucket, the S3 bucket will contain files organized based on timestamp, end user action and Fargate instance name. For a given end user action, a single file represents the metrics for all virtual users on one Fargate instance within a single 15-second time window.</p>
-        <br/>
-        <figure>
-          <img src="assets/images/5-architecture/slide55.svg">
-          <figcaption>Fig. 5.8: Structure of one test result file</figcaption>
-        </figure>
-        <br/>
-        <p>For example, in the figure above, the JSON file contains metrics from all 20 virtual users on the "mi_W8ni" Fargate instance for the "Click first link" action at the Unix timestamp listed.​</p>
-        <p>But even in this transformed state, the data currently sitting in the S3 bucket isn't appropriately formatted for a time series database. So we'll need another transformation step, this time involving an AWS Lambda function.​</p>
-        <br/>
-        <h4>Aggregating Lambda</h4>
-        <br/>
-        <figure>
-          <img src="assets/images/5-architecture/slide56.svg">
-          <figcaption>Fig. 5.9: Monsoon’s Aggregating Lambda</figcaption>
-        </figure>
-        <br/>
-        <p>AWS Lambda is a serverless, event-driven compute service. It's similar to Fargate. But while Fargate runs entire apps in a serverless environment, Lambda runs individual serverless functions.​</p>
+        <br />
         <p>
-          At a high level, every one minute, our Aggregating Lambda function polls the S3 bucket to determine if any new data has arrived. For each new timestamp, the lambda aggregates all the metrics in the JSON files with that timestamp, creating a single time series data point. Then we <code>POST</code> that data point to the time series database.
-        </p>
-        <figure>
-          <img src="assets/images/5-architecture/aggregation_process.gif" class="case-study-image">
-          <figcaption>Fig. 5.10: How metrics are aggregated by timestamp</figcaption>
-        </figure>
-        <br/>
-        <p>
-          But let’s clarify this high-level summary a bit. A given timestamp is ready to be processed 3 minutes after its creation. Processing begins by spinning up an instance of the Aggregating Lambda. That lambda grabs all JSON files from the S3 bucket whose timestamp matches the given timestamp and aggregates all those metrics into a single time series data point. The lambda then <code>POST</code>s that data point to the time series database.
+          Each regional load generator sends its completed test results in 10-second intervals to the aggregator where they are saved in a SQLite database that acts as a temporary data store. 
+          The aggregator has a single route that is responsible for parsing and formatting the incoming data from the load generators and saving the data to the SQLite cache.
         </p>
         <br/>
         <p>
-          This timestamp processing is batched. Every 1 minute, events are fired - one event per ready timestamp. For each of these events, a new Aggregating Lambda instance is spun up. The mechanism needed to generate these events is complex and requires the assistance of another lambda, playing the role of orchestrator. We call this the Metronome Lambda, and we’ll discuss it more in section 7.2 below.
+          The aggregator then writes the data from short-term storage to the Timestream database in 10-second intervals. 
+          It sends data utilizing Timestream’s ability to handle batch write requests of 100 records per write and handles AWS throttling exceptions to achieve more efficient write speeds. 
+          At the end of the test, the aggregator continues attempting to send data to Timestream until five 10-second intervals 
+          have passed in which it has received no data from any of the load generators. This marks the end of the load testing and halts the recurring interval in preparation for teardown.
         </p>
         <br/>
-        <figure>
-          <img src="assets/images/5-architecture/metronone_lambda_presentation.svg" class="case-study-image-large">
-          <figcaption>Fig. 5.11: The Metronome Lambda orchestrates the transformation process.</figcaption>
-        </figure>
-        <h3>5.3 Storage</h3>
-        <br/>
-        <figure>
-          <img src="assets/images/5-architecture/slide58.svg">
-          <figcaption>Fig. 5.12: Monsoon’s Storage Component.</figcaption>
-        </figure>
-        <br/>
-        <p>Now let's examine the Storage component of Monsoon's architecture. Its purpose is to appropriately store the data generated during the Transformation step.</p>
-        <p>As with any system, this data should be stored in a format that lends itself to the data's shape and access patterns. In Monsoon's case, a good fit is the time series data format.​</p>
-        <br/>
-        <h4>What is Time Series Data?</h4>
-        <br/>
-        <p>A <strong>time series</strong> is a series of data points that are ordered chronologically. They're excellent at tracking change over time. Examples include stock charts, ocean tidal charts and line charts in Excel.​</p>
-        <br/>
-        <figure>
+        <!-- <figure>
           <img src="assets/images/5-architecture/slide59.svg">
-          <figcaption>Fig. 5.13: Time series data tracks change over time</figcaption>
-        </figure>
+          <figcaption>Fig. 5.5: Overview of data aggregator receiving and batching data</figcaption>
+        </figure> -->
         <br/>
-        <p>With Monsoon, we generate synthetic load on a website and track session metrics as the test progresses. End users are looking to track how key metrics like page load response times change over time. This type of data naturally lends itself to the time series format.</p>
+        <h3>5.4 Data Storage</h3>
         <br/>
-        <h4>Which Time Series Database?</h4>
+        <p>
+          Initially, we tried an ETL approach, storing data within Timestream with only one table, with each row holding a JSON object. 
+          This object represented the aggregates of all tests and API calls sent by each regional data aggregator - 
+          we collected the averages of the test runtimes and call latencies and discarded the rest of the data. 
+          The only purpose of this approach was to visualize the data in a front-end application. 
+          However, this approach potentially loses valuable data while writing to Timestream, discarding potentially valuable data and not allowing users to make useful queries in the Timestream database.
+        </p>
+        <br />
+        <p>
+          Our final approach to data storage was an ELT solution that gave the user more freedom by providing granular data within the Timestream database.  
+          We created two tables for each region, one for the completed test scripts and one for the API calls made in each test script. 
+          This also allowed us to use a single database that contains data from all of the regions instead of creating a separate database for each region.
+        </p>
         <br/>
-        <p>There are many time series database options available, but we chose to go with AWS Timestream. Timestream is a fast and scalable serverless time series database service that makes it easy to store and analyze trillions of events per day.​ Timestream can be up to 1000 times faster than a relational database and as little as 10% of the cost.​</p>
-        <p>Timestream is a database service, therefore users don't host Timestream themselves. Instead, they connect to the Timestream service, then create tables within the service. Each table contains one or more related time series.</p>
+        <p>
+          This allows users more flexibility in interpreting the data by allowing for database queries. 
+          For example, a user could query the <tt>calls</tt> tables for failed requests within a certain time frame, 
+          or query a region's <tt>test</tt> table to get all tests with runtimes that exceed a certain time limit. 
+          Both of these would have been impossible with our initial ETL approach that discarded data in favor of simple averages.
+        </p>
         <br/>
-        <figure>
-          <img src="assets/images/5-architecture/slide61.svg">
-          <figcaption>Fig. 5.14: Records in Monsoon’s Timestream database</figcaption>
-        </figure>
+        <!-- <figure>
+          <img src="assets/images/5-architecture/slide59.svg">
+          <figcaption>Fig. 5.6: Timestream database receives batched data from a data aggregator for each remote region</figcaption>
+        </figure> -->
         <br/>
-        <p>As we mentioned in the Transformation section, data in our S3 bucket is aggregated by timestamp, then converted into a time series data format and written to Timestream. Because time series data is a first-class citizen in Timestream, the database can quickly and efficiently read and write time series data. An added benefit is that the data returned by a Timestream query is already in the shape we need to eventually display it.</p>
+        <h3>5.5 Visualizer</h3>
         <br/>
-        <h3>5.4 Visualization</h3>
+        <p>
+          We created the visualizer to provide a functional visual representation of the data that was output by Constellation’s tests. 
+          Its function is to allow the user to see test results by region. Each region has two different graphs: the first allows the user to view the average runtime of the tests, 
+          aggregating by either a 1, 5, or 10-second interval. The second is a bar graph that visualizes successful calls from the test script compared to how many calls failed according to the method and URL tested.
+        </p>
+        <br />
+        <p>
+          These two metrics were picked because latency and the number of successful calls vs. calls resulting in errors affect user retention. 
+          These metrics benefit the most by having graphical representations of latency spikes and call success-to-failure ratios.
+        </p>
         <br/>
-        <figure>
-          <img src="assets/images/5-architecture/slide62.svg">
-          <figcaption>Fig. 5.15: Monsoon’s Visualization Component</figcaption>
-        </figure>
+        <p>
+          We built our visualizer with the chart.js library because of our familiarity with the program, its ease of use, and its integration with React. 
+          We decided that having the option to batch-test runtime data with a drop-down menu based on the interval the user chooses would help declutter the data. 
+          Some tests will be much longer than others, and an interval of one second could make the data visualization difficult to parse. 
+          Making a 10-second interval allows for more flexibility and helps declutter the data being viewed.
+        </p>
         <br/>
-        <p>Visualization is Monsoon's final architectural component. The Visualization architecture queries the Storage layer, then displays the data it retrieves in a graphical user interface.</p>
-        <p>We call our dashboard Weather Channel. It's a locally-hosted React app that directly queries the Timestream database service. This dashboard app uses the Victory library for modular charting and data visualization, as Victory has native support for time series data. We’ll show Weather Channel in action later in this case study.</p>
+        <!-- <figure>
+          <img src="assets/images/5-architecture/slide59.svg">
+          <figcaption>Fig. 5.7: Visualizer showing test results</figcaption>
+        </figure> -->
         <br/>
         <!--Section 6-->
-        <h2>6 Installing and Using Monsoon</h2>
+        <h2>6 Challenges</h2>
         <br />
+        <h3>6.1 Test Synchronization</h3>
         <p>
-          We've published Monsoon as an npm package, so you can just run <code>npm install –g monsoon-load-testing</code> to install Monsoon globally on your local machine. 
-          After you've installed the package, you'll want to verify that your hidden AWS config file is correct and does not contain a default profile.
+          A challenge in deploying a distributed system is that there is no guarantee each system will deploy at the same time (refer to image below). The issue, then, is how to synchronize the system components for simultaneous testing.
         </p>
-        <figure>
+        <!-- <figure>
           <img src="assets/images/6-install_use_monsoon/credentials.png" class="case-study-image">
-          <figcaption>Fig 6.1: Verify your hidden AWS configuration files don’t contain default profiles</figcaption>
-        </figure>
+          <figcaption>Fig 6.1: Distributed Load Generation</figcaption>
+        </figure> -->
         <br />
         <p>
-          Next you can issue the <code>monsoon init</code> command. The <code>init</code> command also prompts you to enter your AWS credentials so that Monsoon can deploy infrastructure within your AWS account. 
-          This creates a new <code>monsoon_tests</code> subdirectory inside your current working directory. You'll need to <code>cd</code> into <code>monsoon_tests</code>, and be sure to execute all of the other Monsoon CLI subcommands, from within <code>monsoon_tests</code>.
+          As can be seen in the diagram above, if multiple components generate all the required VUs, they will start at different times which will stagger load generation. This compromises the accuracy of the results because the targeted API will not experience all 600VUs at the same time.
         </p>
-        <figure>
-          <img src="assets/images/6-install_use_monsoon/init.gif" class="case-study-image-full">
-          <figcaption>Fig 6.2: The <code>monsoon init</code> command</figcaption>
-        </figure>
         <br />
         <p>      
-          The next step is to issue the <code>monsoon deploy</code> command. This spins up the AWS ​
-          infrastructure required to run your load test, including a custom VPC, multiple Lambda ​
-          functions, an S3 bucket and a Timestream database.
+          Furthermore, our architecture demands the existence of an additional component - the data aggregator - in our remote regions. As highlighted in a previous section (6.3 Data Aggregation), this component receives data from that region’s load generators for batching to be sent to the Timestream database. This presents a problem where we need to somehow guarantee that an aggregator is “listening” before any load generators send data to it - otherwise data will be missed or dropped.
         </p>
-        <figure>
+        <!-- <figure>
           <img src="assets/images/6-install_use_monsoon/deploy.gif" class="case-study-image-full">
-          <figcaption>Fig 6.3: The <code>monsoon deploy</code> command</figcaption>
-        </figure>
+          <figcaption>Fig 6.2: Data loss due to load generator sending data too early </figcaption>
+        </figure> -->
         <br />
         <p>
-          From within your <code>monsoon_tests</code> directory, you save your test script in the ​
-          <code>test_script.js</code> file and configure your upcoming load test by modifying the <code>test_config.json</code> ​
-          file. If you anticipate running multiple different load tests with different test scripts and ​
-          configurations, you can set up additional subdirectories to organize all the different tests. Just ​
-          issue the <code>monsoon new-test</code> command.
+          In summary, there are two prerequisites in order to achieve test synchronization: 
         </p>
         <br />
-        <figure>
-          <img src="assets/images/6-install_use_monsoon/newtest.gif" class="case-study-image-full">
-          <figcaption>Fig 6.4: The <code>monsoon new-test</code> command</figcaption>
-        </figure>
+        <ul>
+          <li>Load generators need to have a “ready” data-aggregating component prepared to receive data.</li>
+          <li>All load generators start sending API requests at the same time, independent of geographical location and number of load generators.</li>
+        </ul>
+        <br />
+        <h4>6.1.1 Solution Overview</h4>
         <br />
         <p>
-          Let's also look at an example test script and its configuration. 
-          Below we have a test script that loads the Boost homepage, then goes to the product page. 
-          The test is configured to last one hour. We start out with 20 concurrent users, then ramp up to 4000 concurrent users over a 50-minute time window.
-        </p>    
-        <figure>
-          <img src="assets/images/6-install_use_monsoon/script2.svg" class="case-study-image-full">
-          <figcaption>Fig 6.5: An example of test script</figcaption>
-        </figure>
+          To solve this problem, we introduce additional components to our architecture. These involve: 
+        </p>
         <br />
-        <figure>
-          <img src="assets/images/6-install_use_monsoon/config2.svg" class="case-study-image-small">
-          <figcaption>Fig 6.6: An example of configuration file</figcaption>
-        </figure>
+        <ul>
+          <li>A central orchestrator which interfaces with the load generator and data aggregator.</li>
+          <li>A blocking process that prevents the load generator from executing its core responsibility of making API calls and simulating VUs.</li>
+        </ul>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/6-install_use_monsoon/deploy.gif" class="case-study-image-full">
+          <figcaption>Fig. 6.3: Overview of where the central orchestrator component sits relative to other components</figcaption>
+        </figure> -->
+        <br />
+        <br />
+        <p>
+          To illustrate how this works, we will demonstrate orchestration in three scenarios of increasing complexity: 
+        </p>
+        <br />
+        <ul>
+          <li>Single remote region with a single load generating component</li>
+          <li>Single remote region with multiple load generating components</li>
+          <li>Multiple remote regions with load generating components</li>
+        </ul>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/6-install_use_monsoon/deploy.gif" class="case-study-image-full">
+          <figcaption>Fig.6.4: Simplified overview of all three scenarios</figcaption>
+        </figure> -->
+        <br />
+        <h4>6.1.2 Scenario: Single remote region with a single load generating component</h4>
+        <br />
+        <p>
+          With this scenario, there is one load generator to one data aggregator. To achieve test synchronization, the data aggregator needs to be ready to receive data before the load generator sends it any - to ensure no data loss.
+        </p>
         <br /> 
         <p>
-          With the test script and configuration ready to go, you’ll next run the <code>monsoon start</code> command. 
-          This officially kicks off your load test and provides a bit of light reading while you wait.
-        </p>
-        <figure>
-          <img src="assets/images/6-install_use_monsoon/start.gif" class="case-study-image-full">
-          <figcaption>Fig 6.7: The <code>monsoon start</code> command</figcaption>
-        </figure>
-        <br /> 
-        <p>
-          After about 7 minutes, your load test results will start streaming into the Weather Channel ​
-          dashboard. You can view these results locally by issuing the <code>monsoon weather-channel</code> ​
-          command, then opening up a browser and visiting localhost port 5000.
+          To achieve this, the load generating component has a blocking process that continually polls the orchestrator. The blocking process either receives “true” or “false”. If it receives “false”, it is prevented from simulating VUs and polling continues. The only condition to which “true” is received by the blocking process is when the data aggregator has sent a ready signal to the orchestrator that it is finally ready to listen for data. When “true” is received by the blocking process, the blocking process is halted and VU simulation is allowed to occur.
         </p>
         <br />
-        <figure>
-          <img src="assets/images/6-install_use_monsoon/weather.gif" class="case-study-image-full">
-          <figcaption>Fig 6.8: The <code>monsoon weather-channel</code> command</figcaption>
-        </figure>
+        <p>
+          As can be seen in the diagram below, even if load generation is ready before the data aggregator, this solution has the effect of guaranteeing that no load generator sends data without a data aggregator ready to receive it.
+        </p>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/6-install_use_monsoon/deploy.gif" class="case-study-image-full">
+          <figcaption>Fig 6.5: Synchronization of single region with single load generator</figcaption>
+        </figure> -->
+        <br />
+        <h4>6.1.3 Scenario: Single remote region with multiple load generating components </h4>
+        <p> 
+          With this scenario, there are now multiple load generators to one data aggregator. 
+        </p>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+          <figcaption>Fig. 6.6 Simplified overview of orchestrator interaction with multiple load generators</figcaption>
+        </figure> -->
         <br />
         <p>
-          Within the dashboard, you'll receive your data in near real time, so you can refresh your ​
-          browser to see the most current results. Clicking on the buttons at the top of the screen, you ​ 
-          can choose which end user action you'd like to see results for. And you can also toggle​           particular metrics on or off to see only the results that interest you.
+          While the previous solution works for a single load generator, it is now insufficient as it does not guarantee multiple load generators are simulating VUs at the same time.
+        </p>
+        <br />
+        <p>
+          To accommodate this, we expanded on the previous solution. Any load generators ready before the data aggregator still receives a “false” signal from the orchestrator. This signal changes to a timestamp shortly after the orchestrator receives a ready signal from the data aggregator. This timestamp (aka time-to-execute - TTE) informs the load generators when to simulate the VUs by marking the specific time to which the blocking process is halted.
+        </p>
+        <br />
+        <p>
+          Since the same TTE is received by all load generators, they all halt their blocking processes at the same time and therefore simulate VUs at the same time.
+        </p>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+          <figcaption>Fig 6.7: Synchronization of a single region with multiple load generating components</figcaption>
+        </figure> -->
+        <br />
+        <p>
+          The orchestrator calculates the TTE determining the time in which it received the ready signal from the data aggregator and adding a buffer to it. This buffer has been determined to be 50 seconds. To see how the value was derived, see section 8.3.5.
+        </p>
+        <br />
+        <h4>6.1.4 Scenario: Multiple remote regions with Multiple load generating components</h4>
+        <br />
+        <p> 
+          With this scenario both load generation and data aggregation are distributed geographically, which is more reflective of the geo-distributed API load testing that the Constellation framework facilitates.
+        </p>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+          <figcaption>Fig. 6.8: Simplified overview of orchestrator interaction with multiple regions</figcaption>
+        </figure> -->
+        <br />
+        <p> 
+          To test synchronization in this scenario, the prerequisites are as follows:
+        </p>
+        <br />
+        <ol>
+          <li>A load generator cannot execute unless a local data aggregator is confirmed to be listening</li>
+          <li>All load generators must execute at the same time - regardless of region.</li>
+        </ol>
+        <br />
+        <p> 
+          To accommodate this, we modify the previous solution by changing how the TTE is calculated. As the data aggregators from multiple regions eventually become ready, they send their respective ready signals to the orchestrator. From the perspective of the orchestrator, it is initialized with information about which regions are involved in the test. As such, the orchestrator knows to expect which regions to receive ready signals from. Once it has received ready signals from all the expected regions, it calculates the TTE with the buffer time which is then sent to any polling load generator. 
+        </p>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+          <figcaption>Fig 6.9: Synchronization of multiple regions</figcaption>
+        </figure> -->
+        <br />
+        <p> 
+          Since all load generators receive the same TTE, all blocking processes are halted at the same time. At a high level, it guarantees synchronicity between locally and geographically distributed load generators while also guaranteeing that data aggregators are readily available to receive data prior to the execution of any tests. Thus, this ensures the accuracy of test results through synchronicity and guarantees no data loss.
+        </p>
+        <br />
+        <h4>6.1.5 Solution caveat</h4>
+        <br />
+        <p> 
+          The caveat of this solution is that it does not guarantee that all load generators are provisioned prior to the TTE. If such a thing were to happen, they will receive a TTE indicating a point in time already passed. Due to the non-deterministic nature of cloud deployment, this could happen. But, the solution relies on an assumption that distributed components of the same region tend to be provisioned around the same time as each other. In practice, the components are provisioned within a few seconds of each other. Our framework applies a 50s buffer time which should give ample time for all load generators to be provisioned prior to TTE.
+        </p>
+        <br />
+        <h3>6.2 Data Aggregator cache control</h3>
+        <br />
+        <p> 
+          As highlighted in section 6.3, the design of the data aggregator consists of a receiver and a reader process with a SQLite database as a cache. 
         </p>
         <br />
         <p> 
-          Weather Channel also allows you to zoom in and zoom out to get different perspectives on ​
-          your results. And if you hover over a line, you can see your metrics at that exact point in ​
-          time.
+          SQLite ultimately simplifies our design as it is a self-contained database that does not require a separate server to run. For our use case, this means that we did not need to add an additional component like DynamoDB. The tradeoff is that this is a monolithic solution. This means that the receiver, reader, and database all share the same resources. The problem arises when the data aggregator receives too much data and the cache becomes bloated. Reads and writes to the cache become progressively slower as they have to process more rows, especially during large tests. These slower operations adversely affect the adjacent processes causing them to slow down and even reject incoming data. As such, the size of the cache must be controlled. 
         </p>
         <br />
-        <figure>
+        <p> 
+          Our first cache control solution involved reading all the contents of the cache and then deleting all its contents. But because reading and deleting are two separate operations, there is a small period in time between them. We found that in this small period of time, some data may be written to the cache. If this happens, this data is written but never read. As such, this solution results in valid data being deleted before having been batched for Timestream. 
+        </p>
+        <br />
+        <p> 
+          To solve this problem, our cache control involved delayed reading and deletion. This involves a series of queries to the cache which is executed every 10s as per periodic batching of the reader process. An overview of the cache control logic is as follows: 
+        </p>
+        <br />
+        <ul>
+          <li>Any data older than 10s are read</li>
+          <li>Then, any data older than 20s is deleted</li>
+        </ul>
+        <br />
+        <p> 
+          This has the effect of leaving written data in the cache for 10s until it is read, and 20s until it is deleted. Separating read, writes, and deletion by age of data in the cache prevents accidental deletion of unread data. Furthermore, because we are pruning the cache by deleting data older than 20s, the cache size is controlled.
+        </p>
+        <br />
+        <!-- <figure>
           <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
-          <figcaption>Fig 6.9: A demo of monsoon dashboard <code>weather-channel</code></figcaption>
-        </figure>
+          <figcaption>Fig 6.10: Overview of data aggregator cache control process</figcaption>
+        </figure> -->
         <br />
-        <p>
-          Above we see what happened as we ramped up load on the Boost Health website to 4000 concurrent users. The results aren't good. 
-          Response times have increased all the way to 6000 milliseconds. 
-          Analyzing these results, the Boost engineers determine that their current infrastructure won't cut it for their upcoming product launch. 
-          Without running this load test, the Boost engineers wouldn't have known about this weakness in their production system.
+        <p> 
+            <p>
+        <p> 
+          The caveat to this solution is that if the data aggregator interfaces with more than 130 load generators with 200 VUs each, the cache operations noticeably slow down. The reason for this is that we do not delete data which are younger than 20s. If the volume of data written to the cache in this period in time is large enough, the number of rows in the database cache starts to affect the reads and writes again and adversely affect the adjacent processes once again. As such, this proved to be the design limit for the number of VUs in a region. We have limited the possible number of load generators in a region to 100 to account for a 30% safety margin.
         </p>
         <br />
-        <figure>
-          <img src="assets/images/6-install_use_monsoon/teardown.gif" class="case-study-image-full">
-          <figcaption>Fig 6.10: The <code>monsoon teardown</code> and <code>monsoon destroy</code> commands</figcaption>
-        </figure>
+        <h3>6.3 Minimizing Deployment Time</h3>
         <br />
-        <p>
-          Returning to our demo, once your test is over and you've viewed your results, 
-          you can tear down your infrastructure by issuing the <code>monsoon teardown</code> command. 
-          If you'd also like to delete all directories and environment files related to Monsoon, 
-          run the <code>monsoon destroy</code> command after the <code>teardown</code> command.
+        <p> 
+          As the framework allows for regional deployment in up to 23 regions at a time, it is crucial that deployment & teardown times are minimized to maintain usability. Since a remote region deployment takes around 5 minutes, synchronous deployment to all the available regions would take around 2 hours. This is well outside the bounds of a useful tool.
         </p>
+        <br />
+        <p> 
+          To solve this problem, the framework implements parallel deployment. While the CDK deploys synchronously by default, the framework isolates each remote region deployment and wraps them as Node.js child-processes. This then allows us to set up as many child-processes as there are remote regions which are then executed in parallel. 
+        </p>
+        <br />
+        <p> 
+          As a result, the deployment to 23 regions will only take as long as the slowest region - around 5 minutes instead of 2 hours - a 95% reduction.
+        </p>
+        <br />
+        <!-- <figure>
+          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+          <figcaption>Fig 6.11: Synchronized and Parallelized Deployment</figcaption>
+        </figure> -->
         <br />
         <!--Section 7-->
-        <h2>7 Implementation Challenges</h2>
+        <h2>7 Conclusion & Future Work</h2>
         <br />
         <p>
-          Building a distributed load testing tool is a complex undertaking, and we faced several implementation challenges along the way. 
-          Two categories of challenges stand out in particular.
+          Constellation provides an accessible and configurable framework for performing geo-distributed load testing. A flexible infrastructure is deployed to perform testing and store resulting data from the command line using a CLI, which can also be used to launch a built-in data visualizer locally.
         </p>
         </br>
-        <h3>7.1 Response Time</h3>
         <p>
-          Early in the process of designing Monsoon, we spent a lot ​of time considering exactly what metrics to track for a load test. 
-          There were all sorts of things ​we could measure, 
-          but we wanted to choose the one that engineers would find most useful.
+          Software is never done, and we have several ideas for improving and expanding Constellation:
         </p>
-        <br />
-        <p>
-          Examining existing load testing tools, we found that all of them focus on response time as ​
-          their core metric. But what is "response time" exactly? Maybe it’s the elapsed time between when a ​
-          client issues a request and when that client receives the first byte of the response. Or maybe ​
-          we keep the timer going until the DOM content is fully loaded. 
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/7-challenges/response_time.svg" class="case-study-image">
-          <figcaption>Fig 7.1: Which definition of “response time” is most useful to engineers?</figcaption>
-        </figure>
-        <br />
-        <p>
-          Because the core unit of a test script is one end user action, we ultimately chose to define response time ​as the difference between the starting and ending times for the given end user action. 
-          To ​make it easy for developers to calculate response times in their load tests, we wrote a library ​called Monsoon Weather Station, 
-          as we mentioned earlier in the Architecture section.​
-        </p>
-        <br />
-        <h3>7.2 Timing</h3>
-        <p>Our other implementation challenges related to timing. These were by far the larger and more complex issues. </p>
-        <br />
-
-        <h4>Containers</h4>
-        <p>
-          When a developer using Monsoon issues the <code>monsoon start</code> command to kick off a load test, the CLI code sends an event to a starting Lambda, which in turn spins up the appropriate number of containers. 
-          But it can take anywhere from 15 to 60 seconds for a container on Fargate to be ready to run. 
-          Since load generation happens inside the containers, if the containers aren't all starting together, 
-          then we're no longer truly testing the specified number of concurrent users.​
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/7-challenges/waiting_time.gif" class="case-study-image-large">
-          <figcaption>Fig 7.2: A waiting time ensures all virtual users hit the website at once</figcaption>
-        </figure>
-        <br />
-        <p>
-          To solve this problem, we introduced a waiting time of 3 minutes to make sure that all containers are in a ready state before Monsoon actually runs the test script. 
-        </p>
-        <br />
-
-        <h4>Data Generation and Processing</h4>
-        <p>
-          Once all the containers are up and running, how do we coordinate the timing of data ​
-          generation and processing?
-        </p>
-        <br />
-        <p>
-          We had to carefully orchestrate our data pipeline to solve this second timing issue. As ​
-          mentioned in the architecture section, inside each container, 
-          a runner script is responsible for generating headless Chrome instances with Puppeteer and running the test ​script to generate the data. 
-          That raw data needs to be normalized and then sent off to our S3 ​bucket. 
-          But in order to present near real time results to developers, we can't wait until all the ​raw data is generated before starting to process it. 
-          Therefore our normalization script polls for ​new raw data every 15 seconds.    
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/7-challenges/polling.gif" class="case-study-image-full">
-          <figcaption>Fig 7.3: Polling lets data keep moving through our pipeline</figcaption>
-        </figure>
-        <br />
-        <h4>Moving Data to Timestream</h4>
-        <p>
-          Now that the normalizing script has moved the processed data into the S3 bucket, we run into ​
-          a third timing issue. How will we get the data sitting in the S3 bucket into our Timestream ​
-          database?​
-        </p>
-        <br />
-        <p>
-          High level, we handled this by creating an EventBridge rule to invoke our Metronome Lambda once every ​minute. The Metronome Lambda checks a collection of pre-generated timestamps to ​see if any have expired. If any have, the Metronome Lambda invokes the Aggregating Lambda, which gathers the new batch of data and sends it to Timestream.​
-        </p>
-        <br />
-        <figure>
-          <img src="assets/images/7-challenges/timestream.gif" class="case-study-image-full">
-          <figcaption>Fig 7.4: The Metronome Lambda ensures we move data from S3 to Timestream in a timely fashion</figcaption>
-        </figure>
-        <br/>
-        <p>
-          Let’s examine this in greater detail.
-        </p>
-        <br/>
-        <p>
-          The Aggregating Lambda's only concern is aggregating the normalized test results and saving them to Timestream. The Aggregating Lambda needs to wait until all the test results for a given timestamp are stored in the S3 bucket. Since each Load Generation Fargate instance simulates 20 virtual users, for a test of 4000 users, we expect the Aggregating Lambda to process 200 normalized JSON files for each timestamp/end user action pair.
-        </p>
-        <br/>
-        <p>
-          However, how does the Aggregating Lambda know when these 200 files are ready to be processed? And more importantly, what if AWS has a server issue and 10 of the 200 Fargate instances never get spun up? Will the lambda be waiting forever for those 10 missing JSON files? The reality is that the Aggregating Lambda has no way of knowing when files are ready to be processed. It needs assistance from another lambda, the Metronome Lambda.
-        </p>
-        <br/>
-        <p>
-          The Metronome Lambda’s objective is to orchestrate and set the pace of the transformation process. The Metronome Lambda is controlled by an EventBridge rule that triggers the lambda every 1 minute. Amazon EventBridge is a serverless event bus used to build event-driven applications.
-        </p>
-        <br/>
-        <p>
-          Let's see this process in more detail:
-        </p>
-        <br/>
-        <ol>
-          <li><p>
-            Every minute, the Metronome Lambda retrieves a file called <code>timestamps.json</code> from the S3 bucket. This file contains a collection of pre-generated normalized timestamps.
-          </p></li>
-          <li><p>
-            Then the Metronome Lambda goes over this array of timestamps, filtering out all the timestamps that have “expired”. A timestamp is considered expired if more than 3 minutes have passed since the timestamp was created.
-          </p></li>
-          <li>
-            <p>
-              The Metronome Lambda fires an event for each action and expired timestamp, triggering as many Aggregating Lambda invocations as events generated. For example, if the Metronome Lambda finds 2 timestamps have expired for a test with 3 user actions, it fires 6 events that then trigger 6 concurrent Aggregating Lambda invocations. The Aggregating Lambda instances then aggregate the data and save it to Timestream.
-            </p>
-          </li>
-          <li>
-            <p>
-              Finally, the Metronome Lambda returns the modified <code>timestamps.json</code> file to the S3 bucket. This process will be repeated until there are no more timestamps left in the <code>timestamp.json</code> file.
-            </p>
-          </li>
-        </ol>
-        <br/>
-        <figure>
-          <img src="assets/images/7-challenges/metronome_in_action.gif" class="case-study-image-full">
-          <figcaption>Fig 7.5: The Metronome Lambda in action</figcaption>
-        </figure>
-        <p>
-          After solving this third timing issue, we had a working data pipeline capable of moving raw test ​
-          result data from containers to an S3 bucket and then to the database, performing transformations along the way.     
-        </p>
+        <ul>
+          <li>Currently all of the data from a running test is stored in the results database. Not all of this data is necessarily useful, and the degree of usefulness is dependent on how the user plans to use Constellation. There are many ways data reduction can be performed, from simply discarding test results to performing complex data normalization processing, which could be configured by the user.</li>
+          <li>Both the load generator and data aggregator would benefit from being implemented in a more efficient language such as GoLang to improve performance, increasing the number of VUs a single instance can operate and their concurrency capability.</li>
+          <li>The CDK implementation should be evaluated for unnecessary operations and leftover deployment artifacts as well as fine-tuning CPU and memory allocations for the containers. The CDK may eventually be replaced with a custom deployment application using the AWS SDK to improve deployment times.</li>
+          <li>Several pieces of supporting software can simplify Constellation’s use and verify that tests will perform as intended. These tools include the capability to deploy the load generator and data aggregator locally, inspect the correctness of the configuration and test script files, and check the local AWS account to verify that the system is prepared to deploy using the CDK.</li>
+        </ul>
         <br />
         <!-- Section 8 -->
-        <h2>8 Future work</h2>
-        <p>
-          First, we'd like to <strong>rewrite certain parts of the project in Go</strong>. In its current state, Monsoon is written entirely in JavaScript and TypeScript. 
-          This certainly works, but there are parts of the project, particularly the normalizing script and the Aggregating Lambda, that do a lot of heavy lifting in terms of data processing. 
-          These pieces could benefit from the faster runtime performance and better CPU utilization of a compiled language like Go.
-        </p>
-        <br />
-        <p>
-          Second, we'd like to <strong>provide additional libraries</strong> so that we can support test scripts written for multiple load testing tools. For example, 
-          we could provide a version of the Weather Station library that's compatible with Playwright test scripts.
-        </p>
-        <br />
-        <p>
-          Third, we'd like to implement <strong>a new feature that checks test scripts for correctness before ​
-          actually running them</strong>. As it stands now, a developer can start a load test even if the test script ​
-          itself is not written according to our instructions. This can waste valuable developer time while ​
-          also incurring AWS bills for the infrastructure used. This pre-check would be incorporated behind the scenes as part of the <code>monsoon start</code> command.
-        </p>
-        <br />
-        <p>
-          And a final feature we'd like to implement is allowing developers to <strong>export their load test results to a CSV file</strong>.
-        </p>
-        <br />
-        <!-- Section 9 -->
-        <h2>9 References</h2>
-
-        <p><strong>Books</strong></p>
-        <ul>
-          <li><a href="https://www.amazon.com/Hitchhiking-Guide-Testing-Projects-Step/dp/0988540207" class="references">The Hitchhiking Guide To Load Testing Projects by Leandro Melendez</a></li>
-          <li><a href="https://www.oreilly.com/library/view/data-pipelines-pocket/9781492087823/"
-              class="references">O’Reilly’s Data Pipelines Pocket Reference by James Densmore</a></li>
-          <li><a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/" class="references">O’Reilly’s Designing Data-Intensive Applications by Martin Kleppmann</a></li>
-        </ul>
-        <p><strong>Articles</strong></p>
+        <h2>8 References</h2>
         <ul>
           <li>
             <a
-              href="https://addyosmani.com/blog/puppeteer-recipes/"
-              class="references">Web Performance Recipes With Puppeteer by Addy Osmani
+              href="https://k6.io/docs/"
+              class="references"> k6 documentation
             </a>
           </li>
           <li>
             <a
               href="https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/"
-              class="references">AWS Distributed Load Testing Guide
+              class="references">Private Load Zones
             </a>
           </li>
           <li>
             <a
-              href="https://machinelearningmastery.com/moving-average-smoothing-for-time-series-forecasting-python/"
-              class="references">Moving Average Smoothing for Data Preparation and Time Series Forecasting in Python by Jason Brownlee, PhD
+              href="https://k6.io/docs/test-types/soak-testing/"
+              class="references">Soak Testing
             </a>
           </li>
-        </ul>
-        <p><strong>Podcasts</strong></p>
-        <ul>
-          <li><a href="https://softwareengineeringdaily.com/2018/02/08/load-testing-mobile-applications-with-paulo-costa-and-rodrigo-coutinho/" class="references">Software Engineering Daily, February 8, 2018</a></li>
-          <li><a href="https://softwareengineeringdaily.com/2017/03/08/load-testing-with-mark-gilbert/" class="references">Software Engineering Daily, March 8, 2017</a></li>
-        </ul>
-        <p><strong>Companies:</strong></p>
-        <ul>
-          <li><a href="https://www.flood.io" class="references">Flood</a></li>
-          <li><a href="https://www.loadview-testing.com" class="references">loadview</a></li>
-          <li><a href="https://loadninja.com" class="references">LoadNinja</a></li>
+          <li><a href="https://www.redhat.com/en/topics/api/what-are-application-programming-interfaces" class="references">What are API's</a></li>
+          <li><a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_RetentionProperties.html
+            " class="references">Retention Properties</a></li>
+          <li>
+            <a href="https://www.contentkingapp.com/academy/page-speed-resources/faq/amazon-page-speed-study/" class="references">Amazon Speed Study
+            </a>
+          </li>
+          <li><a href="http://glinden.blogspot.com/2006/12/slides-from-my-talk-at-stanford.html" class="references">Geeking With Greg</a></li>
+          <li><a href="https://s3.amazonaws.com/sofist-marketing/State+of+Online+Retail+Performance+Spring+2017+-+Akamai+and+SOASTA+2017.pdf" class="references">The State of Online Retail Preformance</a></li>
+          <li><a href="https://www.loadview-testing.com/blog/protocol-based-website-load-testing-a-traditional-testing-approach/#:~:text=Advantages%20of%20Protocol%2Dbased%20Load,developing%20the%20website%20user%20interface.
+            " class="references">Protocol Based Load Testing</a></li>
+          <li><a href="https://alvinlal.netlify.app/blog/single-thread-vs-child-process-vs-worker-threads-vs-cluster-in-nodejs/" class="references">single-thread vs child-process vs worker threads</a></li>
         </ul>
         <br>
         <h2>Presentation</h2>
         <div class="presentation-wrapper case-study-image">
 
-          <iframe class="presentation-video" frameborder="0" src="https://www.youtube.com/embed/3YANkiPr7qI"
+          <iframe class="presentation-video" frameborder="0" src="https://www.youtube.com/embed/2FsnSr_69bA"
             allowfullscreen></iframe>
         </div class="presentation-wrapper">
         <br>
@@ -1133,26 +1124,26 @@
                     <div class="team-member-wrap">
                       <img src="assets/images/team/stephanie.jpeg" id="sc-photo-case-study" loading="lazy" alt="">
                       <div class="team-member-info">
-                        <div class="team-member-name">Stephanie Cunnane</div>
-                        <div class="team-member-location">Los Angeles, CA</div>
+                        <div class="team-member-name">Jake deVarennes</div>
+                        <div class="team-member-location">Houston, TX</div>
                       </div>
                       <ul class="team-member-icons">
                         <li>
-                          <a href="mailto:stephanie.cunnane@gmail.com" target="_blank">
+                          <a href="mailto:devarennesjacob@gmail.com" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-envelope"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://stephaniecunnane.com" target="_blank">
+                          <a href="https://jakedevarennes.com/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-globe"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://www.linkedin.com/in/stephaniecunnane" target="_blank">
+                          <a href="https://www.linkedin.com/in/jake-devarennes-a42938167/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fab fa-linkedin"></i>
                             </span>
@@ -1163,12 +1154,12 @@
                     <div class="team-member-wrap">
                       <img src="assets/images/team/alex.jpeg" loading="lazy" alt="">
                       <div class="team-member-info">
-                        <div class="team-member-name">Alex Drover</div>
-                        <div class="team-member-location">Vancouver, BC</div>
+                        <div class="team-member-name">Steven Ni</div>
+                        <div class="team-member-location">Calgary, AB</div>
                       </div>
                       <ul class="team-member-icons">
                         <li>
-                          <a href="mailto:alexfdrover@gmail.com" target="_blank">
+                          <a href="mailto:steven.christopher.ni@gmail.com" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-envelope"></i>
                             </span>
@@ -1182,7 +1173,7 @@
                           </a>
                         </li>
                         <li>
-                          <a href="https://www.linkedin.com/in/alexfdrover/" target="_blank">
+                          <a href="https://www.linkedin.com/in/stevenni/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fab fa-linkedin"></i>
                             </span>
