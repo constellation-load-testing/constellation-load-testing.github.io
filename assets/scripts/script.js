@@ -1,4 +1,4 @@
-const words = ["runs","scales", "visualizes"];
+const words = ["runs","distributes", "visualizes"];
 let i = 0;
 
 const _changeText = () => {

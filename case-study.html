@@ -6,6 +6,8 @@
   <title>Constellation Load Testing • Case Study</title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:regular,500,600,700" media="all" />
   <script type="text/javascript">
@@ -21,10 +23,10 @@
         (n.className += t + "touch");
     })(window, document);
   </script>
-  <link href="assets/images/monsoon_graphic_color-cropped.svg" rel="shortcut icon" type="image/x-icon" />
-  <link href="assets/images/monsoon_graphic_color-cropped.svg" rel="apple-touch-icon" />
+  <link href="/assets/logo/SVG/symbol dark background.svg" rel="shortcut icon" type="image/x-icon" />
+  <link href="/assets/logo/SVG/symbol dark background.svg" rel="apple-touch-icon" />
   <script src="https://kit.fontawesome.com/d019875f94.js" crossorigin="anonymous"></script>
-  <meta name="image" property="og:image" content="assets/images/monsoon_graphic_color-cropped.svg" />
+  <meta name="image" property="og:image" content="/assets/logo/SVG/symbol dark background.svg" />
 </head>
 
 <body>
@@ -33,7 +35,7 @@
       <div class="navigation-container">
         <div class="navigation-left">
           <a href="/" aria-current="page" class="brand w-nav-brand w--current" aria-label="home">
-            <img src="assets/images/monsoon_graphic_color.svg" alt="" class="template-logo">
+            <img src="/assets/logo/PNG/symbol-light-background.png" alt="" class="template-logo">
           </a>
           <nav role="navigation" class="nav-menu w-nav-menu">
             <a href="./case-study.html" class="link-block w-inline-block">
@@ -46,7 +48,7 @@
         </div>
         <div class="navigation-right">
           <div class="login-buttons">
-            <a href="https://github.com/monsoon-load-testing/monsoon" target="_blank">
+            <a href="https://github.com/constellation-load-testing" target="_blank">
               <span style="color: #161d6f">
                 <i class="fab fa-github fa-lg"></i>
               </span>
@@ -86,10 +88,10 @@
           such as a website, web application, or API. The term Application Programming Interface (API) is overloaded but will refer to REST APIs here. 
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/1-load-testing/1-load-testing.gif">
           <figcaption>Fig. 1.1: Virtual Users are analogous to real-life users in load testing an API</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           A real-life example of load testing would be Amazon.com making sure servers can handle 3,000,000 customers simultaneously trying to make 
@@ -116,10 +118,10 @@
           different loads and deliver comprehensible metrics such as ​​response times, server response codes, and latency.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/1-load-testing/1.1-importance-of-load-test-results.gif">
           <figcaption>Fig. 1.2: Load testing allows insights based on metrics gathered on API call responses</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <h3>1.2 Challenges of implementing load testing</h3>
         <br />
@@ -154,10 +156,10 @@
           An example would be a user logging into Amazon.com and going through the entire checkout process for a purchase transaction.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/1-load-testing/1.3-bblt.svg">
           <figcaption>Fig. 1.3: BBLT requires browser instances for load testing</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           <strong>Protocol-based load testing (PBLT)</strong> simulates loads without the use of a browser. 
@@ -178,10 +180,10 @@
           while BBLT is better suited for testing an application’s user interface with application servers. 
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/1-load-testing/1.3-pblt.svg">
           <figcaption>Fig. 1.4: PBLT tests the API directly</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           We focused on PBLT because it is more resource efficient in generating loads for backend performance testing. 
@@ -221,10 +223,10 @@
           This form of load testing where the load is created from distinct geographic locations is called <strong>Geo-distributed load testing (GDLT)</strong>.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/1-introduction/protocol-based-load-testing.gif" class="case-study-image-large">
+        <figure>
+          <img src="assets/images/1-load-testing/1.5-geo-distributed-load-testing.gif">
           <figcaption>Fig 1.5: Illustration of geographically distributed load testing an API</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           Accurately distributing the load during a load test can improve the reliability of the test in the following ways:
@@ -270,13 +272,45 @@
         <p>
           While developers can easily leverage these tools to perform API load testing, they must consider the service limit
           tradeoffs. Because these companies manage the deployment and operation of the testing tools worldwide, they impose
-          limits on the number of virtual users, test duration, and data retention (Table 1).
+          limits on the number of virtual users, test duration, and data retention (Table 2.1).
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
-          <figcaption>Table 2.1: Cloud-based load testing tools</figcaption>
-        </figure> -->
+        <table class="table">
+          <caption>Table 2.1: Cloud-based load testing tools</caption>
+          <thead class="thead-dark">
+            <tr>
+              <th>Tool</th>
+              <th>Geo Distributed Load Generation</th>
+              <th>Virtual User Limit</th>
+              <th>Max Test Duration</th>
+              <th>Data Retention</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Artillery Scale</td>
+              <td>Yes</td>
+              <td>1000</td>
+              <td>No Limit</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td>Blazemeter Pro</td>
+              <td>Yes</td>
+              <td>5000</td>
+              <td>2 hours</td>
+              <td>6 months</td>
+            </tr>
+            <tr>
+              <td>k6 Cloud Pro</td>
+              <td>Yes</td>
+              <td>3000</td>
+              <td>1 hour</td>
+              <td>3 months</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
         <p>
           This restricts load testing to a particular scale and limits the ability to perform soak testing, which checks for
           issues that only appear after a longer duration. Additionally, the companies storing test data on behalf of the customer
@@ -289,12 +323,48 @@
           an open-source, serverless, end-to-end framework that aims to simplify 
           the challenges of geographically distributed API load testing.
         </p>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
-          <figcaption>
-            Table 2.2: Cloud-based load testing tools including Constellation
-          </figcaption>
-        </figure> -->
+        <table class="table">
+          <caption>Table 2.2: Cloud-based load testing tools including Constellation</caption>
+          <thead class="thead-dark">
+            <tr>
+              <th>Tool</th>
+              <th>Geo Distributed Load Generation</th>
+              <th>Virtual User Limit</th>
+              <th>Max Test Duration</th>
+              <th>Data Retention</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Artillery Scale</td>
+              <td>Yes</td>
+              <td>1000</td>
+              <td>No Limit</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td>Blazemeter Pro</td>
+              <td>Yes</td>
+              <td>5000</td>
+              <td>2 hours</td>
+              <td>6 months</td>
+            </tr>
+            <tr>
+              <td>k6 Cloud Pro</td>
+              <td>Yes</td>
+              <td>3000</td>
+              <td>1 hour</td>
+              <td>3 months</td>
+            </tr>
+            <tr class="table-primary">
+              <td>Constellation</td>
+              <td>Yes</td>
+              <td>N/A* Tested up to 10,000</td>
+              <td>No Limit</td>
+              <td>12 months</td>
+            </tr>
+          </tbody>
+        </table>
         <br />
         <p>
           The Constellation framework is operated from the command line given a user-generated configuration file and test script.
@@ -325,12 +395,36 @@
           Load testing an API requires enough virtual users to generate the desired number of requests per minute. Constellation
           has been tested up to 10,000 VUs.
         </p>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
-          <figcaption>
+        <table class="table">
+          <caption>
             Table 2.3: Virtual User Limit Duration between tools
-          </figcaption>
-        </figure> -->
+          </caption>
+          <thead class="thead-dark">
+            <tr>
+              <th>Tool</th>
+              <th>Virtual User Limit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Artillery Scale</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td>k6 Cloud Pro</td>
+              <td>3000</td>
+            </tr>
+            <tr>
+              <td>Blazemeter Pro</td>
+              <td>5000</td>
+            </tr>
+            <tr class="table-primary">
+              <td>Constellation</td>
+              <td>N/A* Tested up to 10,000</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
         <p>
           For the managed services that have a lower virtual user limit (e.g. Artillery, k6 Cloud) they can make more frequent
           requests to achieve the same number of requests per minute at a cost of higher memory usage. For example, if a load test
@@ -354,12 +448,36 @@
           possible to perform soak testing. Constellation and Artillery Pro have no limits on the max test duration, while
           Blazemeter and K6 cloud are limited to 5 hours and 1 hour, respectively.
         </p>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
-          <figcaption>
+        <br />
+        <table class="table">
+          <caption>
             Table 2.4: Max Test Duration between tools
-          </figcaption>
-        </figure> -->
+          </caption>
+          <thead class="thead-dark">
+            <tr>
+              <th>Tool</th>
+              <th>Max Test Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>k6 Cloud Pro</td>
+              <td>1 hour</td>
+            </tr>
+            <tr>
+              <td>Blazemeter Pro</td>
+              <td>2 hours</td>
+            </tr>
+            <tr>
+              <td>Artillery Scale</td>
+              <td>No Limit</td>
+            </tr>
+            <tr class="table-primary">
+              <td>Constellation</td>
+              <td>No Limit</td>
+            </tr>
+          </tbody>
+        </table>
         <br />
         <h4>Data Retention</h4>
         <br />
@@ -373,23 +491,43 @@
           that Constellation can keep data for an extended period without paying a monthly subscription. Still, the AWS Timestream
           database will have monthly fees based on the amount of data stored.
         </p>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
-          <figcaption>
+        <br />
+        <table class="table">
+          <caption>
             Table 2.5: Data Retention between tools
-          </figcaption>
-        </figure> -->
+          </caption>
+          <thead class="thead-dark">
+            <tr>
+              <th>Tool</th>
+              <th>Data Retention</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Artillery Scale Tier</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td>k6 Cloud Pro Tier</td>
+              <td>3 months</td>
+            </tr>
+            <tr>
+              <td>Blazemeter Pro Tier</td>
+              <td>6 months</td>
+            </tr>
+            <tr class="table-primary">
+              <td>Constellation</td>
+              <td>12 months</td>
+            </tr>
+          </tbody>
+        </table>
         <br />
         <h4>Constellation Summary</h4>
         <br />
         <p>
           In comparing Constellation with the existing cloud solutions in terms of feature parity, Constellation does not perform
           WebSocket testing, parallel testing with multiple test scripts, or regression analysis of testing results. The
-          visualizer dashboard displays a limited set of metrics, and scheduled tests are not a built-in feature.
-        </p>
-        <br />
-        <p>
-          Constellation is for developers who do not require the additional features a cloud-based SaaS solution provides.
+          visualizer dashboard displays a limited set of metrics, and scheduled tests are not a built-in feature. Constellation is for developers who do not require the additional features a cloud-based SaaS solution provides.
           Constellation is a flexible, scalable open-source solution for developers where cloud-based tiered SaaS solutions are
           too restrictive, excessive, or costly.
         </p>
@@ -397,13 +535,10 @@
         <p>
           Constellation reduces the difficulty of load testing APIs with consumers located in disparate regions. Its purpose is to
           aid developers in confirming that an API can handle expected workloads at scale before any issues reach production
-          environments.
-        </p>
-        <br />
-        <p>
-          Constellation can simulate loads of up to 10,000 concurrent users and tests can be of any duration. Developers can also
+          environments. Constellation can simulate loads of up to 10,000 concurrent users and tests can be of any duration. Developers can also
           see their load test results visualized in a dashboard.
         </p>
+        <br />
         <!-- Section 3-->
         <h2>3 Design Decisions</h2>
         <br />
@@ -412,10 +547,10 @@
           There are two main approaches to API load testing, non-scripted and scripted. Non-scripted testing is relatively simple. The test hits a single endpoint with a specified number of requests in a given timeframe (typically defined using requests per second). The results are relatively straightforward - it shows how performance metrics, such as response times and values, vary given a strictly defined load on an endpoint or a system.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/3-design-decisions/3.1-vu-v-rqps.gif">
           <figcaption>Fig. 3.1: Overview of non-scripted testing hitting a single endpoint</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           While this can be useful for finding performance issues (e.g. increased response times as the requests per second increase) with a single endpoint it doesn’t simulate real-world use particularly well. APIs rarely consist of single endpoints that operate in a vacuum. One endpoint’s performance could affect the performance of another for various reasons, such as being a direct prerequisite to its use or consuming shared resources while hosted on the same hardware. 
@@ -433,10 +568,10 @@
           Despite the additional complexity, Constellation uses scripted testing. Scripted testing is a significantly more realistic way to test an API as a whole, and this allows Constellation to more accurately simulate users consuming an API simultaneously around the world.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/3-design-decisions/3.1-vu-scriptable.gif">
           <figcaption>Fig. 3.2: Overview of a scriptable virtual user</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <h3>3.2 VU Implementation</h3>
         <br />
@@ -448,28 +583,28 @@
           Node.js worker threads enable parallel JavaScript threads within a single Node.js process. We disregarded worker threads early on because they are primarily a way to take advantage of multicore processors to perform CPU intensive tasks asynchronously. Input-output tasks (such as making HTTP requests) are more efficiently handled by the Node.js promise implementation. Also, the number of worker threads typically depends on the number of available CPU cores, but such hardware details are generally not provided by cloud service providers. 
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/3-design-decisions/3.2-worker-threads.svg">
           <figcaption>Fig. 3.3: Nodejs worker threads overview</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           Child processes generate independent Node.js processes, which is an excellent simulation of independent VUs. Each VU would operate entirely separately and be independent of any other VU. However, child processes each have their own provisioned memory and depend on the CPU’s process management. This introduces significant performance overhead which would drastically reduce the number of VUs a single load generator could simulate.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/3-design-decisions/3.2-child-processes.svg">
           <figcaption>Fig. 3.4: Nodejs child processes overview</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           Ultimately we decided to use the built-in Node.js promise implementation. Node.js abstracts promise execution into independent threads, allowing for highly performant asynchronous operation of non-CPU dependent processes (HTTP requests, for example). While this does mean that two requests cannot execute at the same time (at least for a given instance of the load generator), they complete within a few CPU cycles of each other, which is sufficient for load testing purposes.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/3-design-decisions/3.2-promise-vu.gif">
           <figcaption>Fig. 3.5: Virtual users are generated with promises in node js</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <h3>3.3 Results Database</h3>
         <br />
@@ -512,36 +647,36 @@
           An ELT pipeline loads the raw data directly into the target, and the target system is responsible for performing any transformation it requires. This allows transformation to be performed as needed on subsets of data rather than on a complete collection of data and allows for different transformations to be performed at any time, but usually increases the total data loaded into the target.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/3-design-decisions/3.4-etl.svg">
           <figcaption>Fig. 3.6: ETL Data Pipeline</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           The ELT approach was taken for Constellation’s primary data pipeline that extends from the load generation service to the time series database. The data pipeline process looks something like this: for a given VU running through the test script, a test object containing the measured values from that test (runtime, call response times, etc.) is created. For example, 1 VU running a script that takes 10 seconds for a 60-second test will generate 6 test objects. Those test objects are all collected by the data aggregation service and sent to the time series database. The complete data set is then available for inspection by the user, either using the built-in Constellation visualizer or using other third-party software to query the database.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/3-design-decisions/3.4-elt.svg">
           <figcaption>Fig. 3.7: ELT Data Pipeline</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           While this results in significantly more data being stored in the database, it allows users to access the data directly and perform any transformations they need on a Constellation test’s results, in real-time, without any loss of data to abstraction or any processing delay due to a generic transformation process.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/3-design-decisions/3.4-elt-components.gif">
           <figcaption>Fig. 3.8: Overview of ETL with Constellation Framework Components</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <!-- Section 4-->
         <h2>4 Constellation’s Architecture</h2>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/4-constellations-architecture/4.0-architecture-components.svg">
           <figcaption>Fig. 4.1: Constellation Architecture Overview</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           The Constellation system architecture consists of several components deployed across the user’s local system and the cloud. The primary goal of Constellation is to generate load from globally distinct locations, so a global cloud computing service such as AWS is an ideal fit for deploying Constellation. Because the system varies by location the components and their responsibilities will be introduced by location, the user’s local system, a “home” region, and several “remote” regions.
@@ -557,10 +692,10 @@
         <br/>
         <h3>4.1 Local</h3>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/4-constellations-architecture/4.1-local.svg">
           <figcaption>Fig. 4.2: Constellation Local Components</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           The local system is used to deploy the Constellation cloud architecture and host a test result visualizer. Using Constellation requires the installation of the npm package on the user’s local system. The package includes commands for the set-up and tear-down of resources in the home and remote regions and a locally deployed visualization tool that accesses the test results in a time series database.
@@ -572,10 +707,10 @@
         <br/>
         <h3>4.2 Home Region</h3>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/4-constellations-architecture/4.2-home.svg">
           <figcaption>Fig. 4.3: Constellation Home Region Components</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           Once Constellation is installed on the local system, it can be used to deploy resources in the home region to orchestrate testing and store the test results. The home region (defined in the config.JSON) hosts the file storage, key-value database, time series database, and AWS orchestration lambdas.
@@ -599,10 +734,10 @@
         <br/>
         <h3>4.3 Remote Regions</h3>
         <br />
-        <!-- <figure>
-          <img src="assets/images/3-who_should_use_monsoon/3_2_Solutions_comparison_table.svg">
+        <figure>
+          <img src="assets/images/4-constellations-architecture/4.3-remote.svg">
           <figcaption>Fig. 4.4: Constellation Remote Region Components</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           The remote regions are the source of load during testing. Each remote region hosts some number of load-generation containers (depending on the desired number of VUs) and a single data aggregation container. These containers depend on several settings defined in the configuration and test script files.
@@ -623,10 +758,10 @@
         <!--Section 5-->
         <h2>5 Components</h2>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/5-architecture/slide43.svg">
+        <figure>
+          <img src="assets/images/5-components/5.0-components.svg">
           <figcaption></figcaption>
-        </figure> -->
+        </figure>
         <br/>
         <h3>5.1 CLI</h3>
         <br/>
@@ -641,10 +776,10 @@
           The CLI also provides a command to access the custom visualizer to view the test results, in addition to a command to teardown any cloud infrastructure used to set up the test.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/5-architecture/slide44.svg">
+        <figure>
+          <img src="assets/images/5-components/5.1-cli.svg">
           <figcaption>Fig. 5.2: Overview of roles of the user-created files relative to the CLI</figcaption>
-        </figure> -->
+        </figure>
         <br/>
         <h4>5.1.2 Streamlining Deployment with AWS CDK</h4>
         <br/>
@@ -690,20 +825,20 @@
           that contains the start time and runtime for the script, as well as the start time, latency, and other defining characteristics of the HTTP calls made during that run, as defined below:
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/5-architecture/arch_normalizer_process.gif">
+        <figure>
+          <img src="assets/images/5-components/5.2-test-record-obj.gif">
           <figcaption>Fig. 5.3: A test record object is produced every time one Virtual User executes the test script</figcaption>
-        </figure> -->
+        </figure>
         <br/>
         <p>
           These test record objects are sent to the data aggregator in batches every 10 seconds. Once the test duration ends, 
           Constellation sends a final batch of tests to the data aggregator and a post-processing function sends a signal indicating that the load generator container is ready for teardown.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/5-architecture/slide52.svg">
+        <figure>
+          <img src="assets/images/5-components/5.2-load-generator-demo.gif">
           <figcaption>Fig. 5.4: Every load generator sends a collection of test objects to the data aggregator every 10s</figcaption>
-        </figure> -->
+        </figure>
         <br/>
         <h3>5.3 Data Aggregation</h3>
         <br/>
@@ -723,10 +858,10 @@
           have passed in which it has received no data from any of the load generators. This marks the end of the load testing and halts the recurring interval in preparation for teardown.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/5-architecture/slide59.svg">
+        <figure>
+          <img src="assets/images/5-components/5.3-da-demo.gif">
           <figcaption>Fig. 5.5: Overview of data aggregator receiving and batching data</figcaption>
-        </figure> -->
+        </figure>
         <br/>
         <h3>5.4 Data Storage</h3>
         <br/>
@@ -751,10 +886,10 @@
           Both of these would have been impossible with our initial ETL approach that discarded data in favor of simple averages.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/5-architecture/slide59.svg">
+        <figure>
+          <img src="assets/images/5-components/5.4-data-storage.gif">
           <figcaption>Fig. 5.6: Timestream database receives batched data from a data aggregator for each remote region</figcaption>
-        </figure> -->
+        </figure>
         <br/>
         <h3>5.5 Visualizer</h3>
         <br/>
@@ -776,10 +911,10 @@
           Making a 10-second interval allows for more flexibility and helps declutter the data being viewed.
         </p>
         <br/>
-        <!-- <figure>
-          <img src="assets/images/5-architecture/slide59.svg">
-          <figcaption>Fig. 5.7: Visualizer showing test results</figcaption>
-        </figure> -->
+        <figure>
+          <img src="assets/images/5-components/5.5-points_on_the_graph.gif">
+          <figcaption>Fig. 5.7: Constellation visualizer demonstration</figcaption>
+        </figure>
         <br/>
         <!--Section 6-->
         <h2>6 Challenges</h2>
@@ -788,10 +923,10 @@
         <p>
           A challenge in deploying a distributed system is that there is no guarantee each system will deploy at the same time (refer to image below). The issue, then, is how to synchronize the system components for simultaneous testing.
         </p>
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/credentials.png" class="case-study-image">
+        <figure>
+          <img src="/assets/images/6-challenges/6.1-multiple-vus.svg">
           <figcaption>Fig 6.1: Distributed Load Generation</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           As can be seen in the diagram above, if multiple components generate all the required VUs, they will start at different times which will stagger load generation. This compromises the accuracy of the results because the targeted API will not experience all 600VUs at the same time.
@@ -800,10 +935,10 @@
         <p>      
           Furthermore, our architecture demands the existence of an additional component - the data aggregator - in our remote regions. As highlighted in a previous section (6.3 Data Aggregation), this component receives data from that region’s load generators for batching to be sent to the Timestream database. This presents a problem where we need to somehow guarantee that an aggregator is “listening” before any load generators send data to it - otherwise data will be missed or dropped.
         </p>
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/deploy.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.1-unready-da.svg">
           <figcaption>Fig 6.2: Data loss due to load generator sending data too early </figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           In summary, there are two prerequisites in order to achieve test synchronization: 
@@ -825,10 +960,10 @@
           <li>A blocking process that prevents the load generator from executing its core responsibility of making API calls and simulating VUs.</li>
         </ul>
         <br />
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/deploy.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.1.1-orchestrator-component.svg">
           <figcaption>Fig. 6.3: Overview of where the central orchestrator component sits relative to other components</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <br />
         <p>
@@ -841,10 +976,10 @@
           <li>Multiple remote regions with load generating components</li>
         </ul>
         <br />
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/deploy.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.1.1-scenarios.svg">
           <figcaption>Fig.6.4: Simplified overview of all three scenarios</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <h4>6.1.2 Scenario: Single remote region with a single load generating component</h4>
         <br />
@@ -860,20 +995,20 @@
           As can be seen in the diagram below, even if load generation is ready before the data aggregator, this solution has the effect of guaranteeing that no load generator sends data without a data aggregator ready to receive it.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/deploy.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.1.2-first-scenario-animation.gif">
           <figcaption>Fig 6.5: Synchronization of single region with single load generator</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <h4>6.1.3 Scenario: Single remote region with multiple load generating components </h4>
         <p> 
           With this scenario, there are now multiple load generators to one data aggregator. 
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.1.2-second-scenario.svg">
           <figcaption>Fig. 6.6 Simplified overview of orchestrator interaction with multiple load generators</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           While the previous solution works for a single load generator, it is now insufficient as it does not guarantee multiple load generators are simulating VUs at the same time.
@@ -887,10 +1022,10 @@
           Since the same TTE is received by all load generators, they all halt their blocking processes at the same time and therefore simulate VUs at the same time.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.1.2-second-scenario-animation.gif">
           <figcaption>Fig 6.7: Synchronization of a single region with multiple load generating components</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p>
           The orchestrator calculates the TTE determining the time in which it received the ready signal from the data aggregator and adding a buffer to it. This buffer has been determined to be 50 seconds. To see how the value was derived, see section 8.3.5.
@@ -902,10 +1037,10 @@
           With this scenario both load generation and data aggregation are distributed geographically, which is more reflective of the geo-distributed API load testing that the Constellation framework facilitates.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.1.3-third-scenario.svg">
           <figcaption>Fig. 6.8: Simplified overview of orchestrator interaction with multiple regions</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p> 
           To test synchronization in this scenario, the prerequisites are as follows:
@@ -920,10 +1055,10 @@
           To accommodate this, we modify the previous solution by changing how the TTE is calculated. As the data aggregators from multiple regions eventually become ready, they send their respective ready signals to the orchestrator. From the perspective of the orchestrator, it is initialized with information about which regions are involved in the test. As such, the orchestrator knows to expect which regions to receive ready signals from. Once it has received ready signals from all the expected regions, it calculates the TTE with the buffer time which is then sent to any polling load generator. 
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.1.3-third-scenario-animation.gif">
           <figcaption>Fig 6.9: Synchronization of multiple regions</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p> 
           Since all load generators receive the same TTE, all blocking processes are halted at the same time. At a high level, it guarantees synchronicity between locally and geographically distributed load generators while also guaranteeing that data aggregators are readily available to receive data prior to the execution of any tests. Thus, this ensures the accuracy of test results through synchronicity and guarantees no data loss.
@@ -962,10 +1097,10 @@
           This has the effect of leaving written data in the cache for 10s until it is read, and 20s until it is deleted. Separating read, writes, and deletion by age of data in the cache prevents accidental deletion of unread data. Furthermore, because we are pruning the cache by deleting data older than 20s, the cache size is controlled.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.2-cache-control.gif">
           <figcaption>Fig 6.10: Overview of data aggregator cache control process</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <p> 
             <p>
@@ -987,10 +1122,10 @@
           As a result, the deployment to 23 regions will only take as long as the slowest region - around 5 minutes instead of 2 hours - a 95% reduction.
         </p>
         <br />
-        <!-- <figure>
-          <img src="assets/images/6-install_use_monsoon/dashboard_demo.gif" class="case-study-image-full">
+        <figure>
+          <img src="/assets/images/6-challenges/6.3-parallelized-deployment.svg">
           <figcaption>Fig 6.11: Synchronized and Parallelized Deployment</figcaption>
-        </figure> -->
+        </figure>
         <br />
         <!--Section 7-->
         <h2>7 Conclusion & Future Work</h2>
@@ -998,7 +1133,7 @@
         <p>
           Constellation provides an accessible and configurable framework for performing geo-distributed load testing. A flexible infrastructure is deployed to perform testing and store resulting data from the command line using a CLI, which can also be used to launch a built-in data visualizer locally.
         </p>
-        </br>
+        <br />
         <p>
           Software is never done, and we have several ideas for improving and expanding Constellation:
         </p>
@@ -1062,28 +1197,28 @@
                 <div>
                   <div class="team-grid">
                     <div class="team-member-wrap">
-                      <img src="assets/images/team/raul.jpg" loading="lazy" alt="">
+                      <img src="assets/images/team/andrew.png" loading="lazy" alt="">
                       <div class="team-member-info">
-                        <div class="team-member-name">Raul de Hevia</div>
-                        <div class="team-member-location">San Francisco, CA</div>
+                        <div class="team-member-name">Andrew Thresher</div>
+                        <div class="team-member-location">Seattle, WA</div>
                       </div>
                       <ul class="team-member-icons">
                         <li>
-                          <a href="mailto:raul.dehevia@gmail.com" target="_blank">
+                          <a href="mailto:thresher533@gmail.com" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-envelope"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://www.rauldehevia.com" target="_blank">
+                          <a href="https://www.athresher.com" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-globe"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://www.linkedin.com/in/raul-de-hevia-sanchez" target="_blank">
+                          <a href="https://www.linkedin.com/in/andrew-thresher/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fab fa-linkedin"></i>
                             </span>
@@ -1092,10 +1227,10 @@
                       </ul>
                     </div>
                     <div class="team-member-wrap">
-                      <img src="assets/images/team/minh.jpg" loading="lazy" alt="">
+                      <img src="assets/images/team/jason.png" loading="lazy" alt="">
                       <div class="team-member-info">
-                        <div class="team-member-name">Minh Vu</div>
-                        <div class="team-member-location">Chicago, IL</div>
+                        <div class="team-member-name">Jason Aricheta</div>
+                        <div class="team-member-location">Wellington, New Zealand</div>
                       </div>
                       <ul class="team-member-icons">
                         <li>
@@ -1122,7 +1257,7 @@
                       </ul>
                     </div>
                     <div class="team-member-wrap">
-                      <img src="assets/images/team/stephanie.jpeg" id="sc-photo-case-study" loading="lazy" alt="">
+                      <img src="assets/images/team/jake.png" loading="lazy" alt="">
                       <div class="team-member-info">
                         <div class="team-member-name">Jake deVarennes</div>
                         <div class="team-member-location">Houston, TX</div>
@@ -1152,7 +1287,7 @@
                       </ul>
                     </div>
                     <div class="team-member-wrap">
-                      <img src="assets/images/team/alex.jpeg" loading="lazy" alt="">
+                      <img src="assets/images/team/steven.png" loading="lazy" alt="">
                       <div class="team-member-info">
                         <div class="team-member-name">Steven Ni</div>
                         <div class="team-member-location">Calgary, AB</div>
@@ -1166,7 +1301,7 @@
                           </a>
                         </li>
                         <li>
-                          <a href="https://alexfdrover.github.io" target="_blank">
+                          <a href="https://" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-globe"></i>
                             </span>
