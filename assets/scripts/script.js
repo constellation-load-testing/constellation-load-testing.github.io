@@ -5,15 +5,7 @@ let j = 0;
 
 const _changeText = () => {
   i = (i + 1) % words.length;
-  let spins = document.getElementsByClassName("spin");
-  const windowWidth = window.innerWidth;
-  if (windowWidth < 425) {
-    spins[0].innerHTML = "";
-    spins[1].innerHTML = words[i];
-  } else {
-    spins[0].innerHTML = words[i];
-    spins[1].innerHTML = "";
-  }
+  document.getElementsByClassName("spin")[0].innerHTML = words[i];
 };
 
 setInterval("_changeText()", 1200);

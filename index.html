@@ -71,10 +71,16 @@
             </a>
             <nav role="navigation" class="nav-menu w-nav-menu">
               <a href="./case-study.html" class="link-block w-inline-block">
-                <div>Case Study</div>
+                <div class="overflow-clip">Case Study</div>
+              </a>
+              <a
+                href="./case-study.html#toc-presentation"
+                class="link-block w-inline-block"
+              >
+                <div class="overflow-clip">Presentation</div>
               </a>
               <a href="./team.html" class="link-block w-inline-block">
-                <div>The Team</div>
+                <div class="overflow-clip">The Team</div>
               </a>
             </nav>
           </div>
@@ -97,16 +103,11 @@
     <div class="section header">
       <div class="container">
         <div class="hero-text-container">
-          <h1 class="h2 centered">
-            Constellation
-            <span class="spin">visualizes</span>
-          </h1>
+          <h1 class="h2 centered">Constellation</h1>
           <!-- for responsiveness -->
-          <div class="425-appear">
-            <h1 class="h2 centered">
-              <span class="spin">visualizes</span>
-            </h1>
-          </div>
+          <h1 class="h2 centered">
+            <span class="spin">scales</span>
+          </h1>
           <!-- for responsiveness -->
           <div class="425-appear">
             <h1 class="h2 centered">geo distributed</h1>
@@ -118,9 +119,6 @@
           <h1 class="h2 centered">
             for your API<span class="425-disappear"> 🗺️</span>
           </h1>
-          <!-- <div class="425-appear">
-            <h1 class="h2 centered">🗺️</h1>
-          </div> -->
           <br /><br />
           <p class="intro-paragraph white-paragraph centered bottom-margin">
             Constellation is an open-source, serverless, framework that
@@ -213,36 +211,38 @@
                     <img
                       id="img-cloud"
                       src="./assets/images/marketing/globe_server.svg"
+                      style="heigth: auto; width: 37%"
                     />
-                    <h5 style="display: inline-block">
-                      Run tests in the cloud
-                    </h5>
+                    <h5 style="display: inline-block">Global Tests</h5>
                   </div>
                   <div class="item-content">
                     <p>
-                      Constellation deploys into your AWS account allowing you
-                      to simulate real user-traffic to your API.
+                      With 26 regions to choose from, you can simulate real
+                      user-traffic from around the world.
                     </p>
                   </div>
                 </div>
                 <div class="item-box">
                   <div class="item-header">
                     <img
-                      src="/assets/images/marketing/axios_node.svg"
-                      style="heigth: auto; width: 74%"
+                      src="/assets/images/marketing/axios_node2.svg"
+                      style="heigth: auto; width: 75%"
                     />
                     <h5 style="display: inline-block">Easy scripting</h5>
                   </div>
                   <div class="item-content">
                     <p>
-                      Write your load testing scripts using Node.js through the
-                      Axios library. Add any additional functionality you want.
+                      Load-testing scripts uses NodeJS with the Axios library.
+                      Add any additional functionality you want.
                     </p>
                   </div>
                 </div>
                 <div class="item-box">
                   <div class="item-header">
-                    <img src="./assets/images/marketing/no_hidden_fees.svg" />
+                    <img
+                      src="./assets/images/marketing/no_hidden_fees.png"
+                      style="heigth: auto; width: 36%"
+                    />
                     <h5 style="display: inline-block">No platform fees</h5>
                   </div>
                   <div class="item-content">
@@ -256,6 +256,7 @@
                   <div class="item-header">
                     <img
                       src="./assets/images/marketing/insights_constellation.svg"
+                      style="heigth: auto; width: 36.5%"
                     />
                     <h5 style="display: inline-block">Insights</h5>
                   </div>
@@ -267,11 +268,15 @@
                   </div>
                 </div>
               </div>
-              <div class="data-silo-buttons">
+              <div
+                class="button-container"
+                style="display: flex; justify-content: center"
+              >
                 <a
                   href="https://github.com/constellation-load-testing/constellation-local"
                   target="_blank"
-                  class="primary-button w-inline-block data-silo-button-left"
+                  id="try-it-out-button"
+                  class="primary-button right-margin"
                 >
                   <div class="primary-button-text">Try It Out</div>
                 </a>
