@@ -30,7 +30,7 @@
 </head>
 
 <body>
-  <div class="navigation-wrap">
+  <div id="navbar" class="navigation-wrap content navbar-background-color">
     <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navigation w-nav">
       <div class="navigation-container">
         <div class="navigation-left">
@@ -38,8 +38,8 @@
             <img src="/assets/logo/PNG/symbol-light-background.png" alt="" class="template-logo">
           </a>
           <nav role="navigation" class="nav-menu w-nav-menu">
-            <a href="./case-study.html" class="link-block w-inline-block">
-              <div>Case Study</div>
+            <a href="./index.html" class="link-block w-inline-block">
+              <div class="overflow-clip">Home</div>
             </a>
             <a
               href="./case-study.html#toc-presentation"
@@ -48,7 +48,7 @@
               <div class="overflow-clip">Presentation</div>
             </a>            
             <a href="./team.html" class="link-block w-inline-block">
-              <div>The Team</div>
+              <div class="overflow-clip">The Team</div>
             </a>
           </nav>
         </div>
@@ -1354,11 +1354,27 @@
       'selectors': 'h2', //elements to use as headings
       'container': 'article', //element to find all selectors in
       'smoothScrolling': true, //enable or disable smooth scrolling on click
+      // 'scrollTop': $target.offset().top - 140, //offset to scroll to when link is clicked
       'prefix': 'toc', //prefix for anchor tags and class names
       'highlightOnScroll': true, //add class to heading that is currently in focus
       'highlightOffset': 100, //offset to trigger the next headline
     });
+
+    $(document).ready(function () {
+      $('a[href^="#"]').on('click',function (e) {
+          // e.preventDefault();
+          var target = this.hash;
+          
+          $target = $(target);
+         $('html, body').stop().animate({
+           'scrollTop': $target.offset().top-140
+          }, 900, 'swing', function () {
+           window.location.hash = target;
+          });
+      });  
+    })
   </script>
+  <script type="text/javascript" src="assets/scripts/case-study-script.js"></script>  
 </body>
 
 </html>

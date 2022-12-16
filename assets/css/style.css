@@ -99,7 +99,7 @@ figcaption {
   float: left;
   /* transform: translateY(32.5%); */
   box-sizing: border-box;
-  padding: 20px 40px;
+  padding: 140px 40px;
   position: fixed;
   font-size: 1rem;
   z-index: 1;
@@ -291,10 +291,12 @@ label {
 
 #case-study {
   width: 100%;
+  max-width: 720px;
   float: right;
 }
 
 .case-study-container {
+  padding-top: 90px;
   padding-left: 20%;
 }
 
@@ -2166,33 +2168,31 @@ iframe {
 }
 
 img.template-logo {
-  width: 75%;
+  width: 50%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* we have a new h1 for spin and geo distributed */
-@media screen and (max-width: 425px) {
-  [class="425-appear"] {
-    /* ignore */
+@media screen and (max-width: 630px) {
+  [class="630-appear"] {
   }
-  [class="425-disappear"] {
+  [class="630-disappear"] {
     display: none;
   }
 }
 
-@media screen and (min-width: 426px) {
-  [class="425-appear"] {
+@media screen and (min-width: 631px) {
+  [class="630-appear"] {
     display: none;
   }
-  [class="425-disappear"] {
-    /* ignore */
+  [class="630-disappear"] {
   }
 }
 
 @media screen and (max-width: 770px) {
   .tab-image-wrap {
-    margin: -30px 0px;
+    margin: 0px;
   }
 }
 
@@ -2213,7 +2213,30 @@ p.intro-paragraph {
 }
 
 .overflow-clip {
-  /* text-overflow: clip; */
-  /* white-space: nowrap; */
+  text-overflow: clip;
+  white-space: nowrap;
   font-size: 15px;
+}
+
+/* Page content */
+.content {
+  z-index: 9999;
+  padding: 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;  
+}
+
+*:is(.content > div, .content) {
+  /* background-color: rgb(245, 245, 245);
+   */
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 0px;
 }

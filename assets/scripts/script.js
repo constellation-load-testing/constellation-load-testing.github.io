@@ -1,4 +1,4 @@
-const words = ["scales", "streamlines", "visualizes"];
+const words = ["streamlines", "simplifies", "visualizes"];
 const earthEmojis = ["🌎", "🌍", "🌏"];
 let i = 0;
 let j = 0;
