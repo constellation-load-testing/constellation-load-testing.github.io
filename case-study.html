@@ -112,7 +112,7 @@
           As of 2021, this 1% of lost sales revenue would be approximately $3.8 billion.
         </p>
         <br />
-        <h3>1.1 Importance of load test results</h3>
+        <h3 class="h3">1.1 Importance of load test results</h3>
         <br />
         <p>
           Developers are concerned with load testing for the many insights it can provide into the system being tested, 
@@ -129,7 +129,7 @@
           <figcaption>Fig. 1.2: Load testing allows insights based on metrics gathered on API call responses</figcaption>
         </figure>
         <br />
-        <h3>1.2 Challenges of implementing load testing</h3>
+        <h3 class="h3">1.2 Challenges of implementing load testing</h3>
         <br />
         <p>
           Load testing can be done manually by a single person or multiple people. 
@@ -143,7 +143,7 @@
           To address this challenge we will discuss two approaches to load testing, browser-based and protocol-based.
         </p>
         <br />
-        <h3>1.3 The two types of load testing</h3>
+        <h3 class="h3">1.3 The two types of load testing</h3>
         <br />
         <p>
           Let’s discuss what browser-based and protocol-based load testing are, why each approach exists, the problems they solve, and the tradeoffs between them.
@@ -196,7 +196,7 @@
           In the next section we’ll look at the problem space Constellation operates in.
         </p>
         <br />
-        <h3>1.4 Problem Domain</h3>
+        <h3 class="h3">1.4 Problem Domain</h3>
         <br />
         <p>
           An important point to clarify before continuing is that every application or website that is public has an API. 
@@ -223,7 +223,7 @@
           In that case, developers need to investigate the specific regions experiencing the service differences, update the infrastructure, and check whether the performance gap has improved.
         </p>
         <br />
-        <h3>1.5 Geo-Distributed Load Testing</h3>
+        <h3 class="h3">1.5 Geo-Distributed Load Testing</h3>
         <br />
         <p>
           This form of load testing where the load is created from distinct geographic locations is called <strong>Geo-distributed load testing (GDLT)</strong>.
@@ -254,7 +254,7 @@
         </ol>
         <br/>
         <!-- Section 2 -->
-        <h2>2 Existing Solutions</h2>
+        <h2 class="h2">2 Existing Solutions</h2>
         <br />
         <p>Many open-source load testing applications exist but are challenging to use simultaneously in different geographic
         regions. That capability is usually in the premium version of the open-source tool in the form of managed deployments.
@@ -324,7 +324,7 @@
           the managed service to compare with any new tests.
         </p>
         <br />
-        <h3>2.1 Constellation</h3>
+        <h3 class="h3">2.1 Constellation</h3>
         <p>To address these limitations, we built Constellation. Constellation is 
           an open-source, serverless, end-to-end framework that aims to simplify 
           the challenges of geographically distributed API load testing.
@@ -386,7 +386,7 @@
           visualization services to the user's desired home region. Once the test has been completed those remote deployments are
           torn down, leaving the database and visualizer available until the user removes them.
         </p>
-        <h3>2.2 How Constellation compares</h3>
+        <h3 class="h3">2.2 How Constellation compares</h3>
         <br />
         <p>
           Let's examine the tradeoffs with using a cloud-based SaaS solution first. As these are managed services, the end user is
@@ -546,9 +546,9 @@
         </p>
         <br />
         <!-- Section 3-->
-        <h2>3 Design Decisions</h2>
+        <h2 class="h2">3 Design Decisions</h2>
         <br />
-         <h3>3.1 Virtual Users vs. Requests Per Second</h3>
+         <h3 class="h3">3.1 Virtual Users vs. Requests Per Second</h3>
         <p>
           There are two main approaches to API load testing, non-scripted and scripted. Non-scripted testing is relatively simple. The test hits a single endpoint with a specified number of requests in a given timeframe (typically defined using requests per second). The results are relatively straightforward - it shows how performance metrics, such as response times and values, vary given a strictly defined load on an endpoint or a system.
         </p>
@@ -579,7 +579,7 @@
           <figcaption>Fig. 3.2: Overview of a scriptable virtual user</figcaption>
         </figure>
         <br />
-        <h3>3.2 VU Implementation</h3>
+        <h3 class="h3">3.2 VU Implementation</h3>
         <br />
         <p>
           Virtual Users (VU) are the backbone of a scripted load testing approach. A VU must simulate a user as closely as possible while still operating as efficiently as possible. The less resources it takes to simulate a single user, the more VUs can be generated with the same infrastructure. The VUs should also be independent of one another - if one VU encounters an error or has poor performance, it should not impact any of the other VUs. The load generation tool is programmed using JavaScript, and there are several ways to implement VUs in JavaScript, including promises, child processes, and worker threads.
@@ -612,7 +612,7 @@
           <figcaption>Fig. 3.5: Virtual users are generated with promises in node js</figcaption>
         </figure>
         <br />
-        <h3>3.3 Results Database</h3>
+        <h3 class="h3">3.3 Results Database</h3>
         <br />
         <p>
           We selected a time series database, which is a database optimized for handling large amounts of time-stamped data, to store the runtime data from the executed test scripts and individual API call data coming out of the data aggregator. It is a write-optimized database type, which in our use case is ideal as database writes are a core part of our application. We are working with data that benefits from a database that can handle a massive amount of write requests and is built around keeping track of data that is time sensitive. Timestream is the AWS offering and fits naturally within Constellation’s overall architecture.
@@ -630,7 +630,7 @@
           Despite some minor quirks of Timestream, we ultimately chose to use this database because the benefits far outweighed the costs. We needed a database that could handle a large number of write requests that were centered around time-sensitive data and were a part of the AWS ecosystem. Even though there were some small inconveniences they were outshined by Timestream being a fast, cost-effective, AWS integrated solution for our data storage needs.
         </p>
         <br/>
-        <h3>3.4 Data Collection</h3>
+        <h3 class="h3">3.4 Data Collection</h3>
         <br />
         <p>
           Load testing can generate a huge amount of data. Responses can vary from a simple 200 OK to a large content download. Even for small or reduced responses, the sheer number of responses produced can be daunting. For example, a ten-minute test involving 5000 VUs that each make two requests every six seconds produces a million responses.
@@ -677,7 +677,7 @@
         </figure>
         <br />
         <!-- Section 4-->
-        <h2>4 Constellation’s Architecture</h2>
+        <h2 class="h2">4 Constellation’s Architecture</h2>
         <br />
         <figure>
           <img src="assets/images/4-constellations-architecture/4.0-architecture-components.svg">
@@ -696,7 +696,7 @@
           Specifically, several data stores, including a file storage system, a key-value database, and a time series database, are deployed to the home region along with orchestration functions. Remote regions are deployed with load generation containers and a data aggregation container.
         </p>
         <br/>
-        <h3>4.1 Local</h3>
+        <h3 class="h3">4.1 Local</h3>
         <br />
         <figure>
           <img src="assets/images/4-constellations-architecture/4.1-local.svg">
@@ -711,7 +711,7 @@
           The set-up and tear-down commands depend on two user-generated files, a JSON file that defines the test configuration and a JavaScript file that defines the script a VU should follow when testing. The AWS CLI and CDK must also be installed, including the set-up of a local AWS profile. The AWS CDK pulls account metadata from the default AWS profile and then deploys the testing infrastructure.
         </p>
         <br/>
-        <h3>4.2 Home Region</h3>
+        <h3 class="h3">4.2 Home Region</h3>
         <br />
         <figure>
           <img src="assets/images/4-constellations-architecture/4.2-home.svg">
@@ -738,7 +738,7 @@
           A time series database stores the results from the load tests. These results include the latency of individual API requests and the duration of individual runs through the script. They can be queried to find the average latency or success of a particular type of call, the average runtime of the script, the ratio of successes to failures, and more.
         </p>
         <br/>
-        <h3>4.3 Remote Regions</h3>
+        <h3 class="h3">4.3 Remote Regions</h3>
         <br />
         <figure>
           <img src="assets/images/4-constellations-architecture/4.3-remote.svg">
@@ -762,14 +762,14 @@
         </p>
         <br/>
         <!--Section 5-->
-        <h2>5 Components</h2>
+        <h2 class="h2">5 Components</h2>
         <br/>
         <figure>
           <img src="assets/images/5-components/5.0-components.svg">
           <figcaption></figcaption>
         </figure>
         <br/>
-        <h3>5.1 CLI</h3>
+        <h3 class="h3">5.1 CLI</h3>
         <br/>
         <p>
           The user interacts with the Constellation framework via the CLI. Once the user has created the configuration file and the test script, 
@@ -814,7 +814,7 @@
           From this, the CDK synthesizes the required Cloud Formation YAML files, which are then used by AWS directly for deployment.  
         </p>
         <br/>
-        <h3>5.2 Load Generation</h3>
+        <h3 class="h3">5.2 Load Generation</h3>
         <br/>
         <p>
           As a load-testing framework, Constellation needs to simulate VUs that repeatedly execute the user-defined script, 
@@ -846,7 +846,7 @@
           <figcaption>Fig. 5.4: Every load generator sends a collection of test objects to the data aggregator every 10s</figcaption>
         </figure>
         <br/>
-        <h3>5.3 Data Aggregation</h3>
+        <h3 class="h3">5.3 Data Aggregation</h3>
         <br/>
         <p>
           The data aggregation code acts as a funnel to consolidate completed test results from the load generators in the same region and pass them into an AWS Timestream database in the home region. 
@@ -869,7 +869,7 @@
           <figcaption>Fig. 5.5: Overview of data aggregator receiving and batching data</figcaption>
         </figure>
         <br/>
-        <h3>5.4 Data Storage</h3>
+        <h3 class="h3">5.4 Data Storage</h3>
         <br/>
         <p>
           Initially, we tried an ETL approach, storing data within Timestream with only one table, with each row holding a JSON object. 
@@ -897,7 +897,7 @@
           <figcaption>Fig. 5.6: Timestream database receives batched data from a data aggregator for each remote region</figcaption>
         </figure>
         <br/>
-        <h3>5.5 Visualizer</h3>
+        <h3 class="h3">5.5 Visualizer</h3>
         <br/>
         <p>
           We created the visualizer to provide a functional visual representation of the data that was output by Constellation’s tests. 
@@ -923,9 +923,9 @@
         </figure>
         <br/>
         <!--Section 6-->
-        <h2>6 Challenges</h2>
+        <h2 class="h2">6 Challenges</h2>
         <br />
-        <h3>6.1 Test Synchronization</h3>
+        <h3 class="h3">6.1 Test Synchronization</h3>
         <p>
           A challenge in deploying a distributed system is that there is no guarantee each system will deploy at the same time (refer to image below). The issue, then, is how to synchronize the system components for simultaneous testing.
         </p>
@@ -1076,7 +1076,7 @@
           The caveat of this solution is that it does not guarantee that all load generators are provisioned prior to the TTE. If such a thing were to happen, they will receive a TTE indicating a point in time already passed. Due to the non-deterministic nature of cloud deployment, this could happen. But, the solution relies on an assumption that distributed components of the same region tend to be provisioned around the same time as each other. In practice, the components are provisioned within a few seconds of each other. Our framework applies a 50s buffer time which should give ample time for all load generators to be provisioned prior to TTE.
         </p>
         <br />
-        <h3>6.2 Data Aggregator cache control</h3>
+        <h3 class="h3">6.2 Data Aggregator cache control</h3>
         <br />
         <p> 
           As highlighted in section 6.3, the design of the data aggregator consists of a receiver and a reader process with a SQLite database as a cache. 
@@ -1114,7 +1114,7 @@
           The caveat to this solution is that if the data aggregator interfaces with more than 130 load generators with 200 VUs each, the cache operations noticeably slow down. The reason for this is that we do not delete data which are younger than 20s. If the volume of data written to the cache in this period in time is large enough, the number of rows in the database cache starts to affect the reads and writes again and adversely affect the adjacent processes once again. As such, this proved to be the design limit for the number of VUs in a region. We have limited the possible number of load generators in a region to 100 to account for a 30% safety margin.
         </p>
         <br />
-        <h3>6.3 Minimizing Deployment Time</h3>
+        <h3 class="h3">6.3 Minimizing Deployment Time</h3>
         <br />
         <p> 
           As the framework allows for regional deployment in up to 23 regions at a time, it is crucial that deployment & teardown times are minimized to maintain usability. Since a remote region deployment takes around 5 minutes, synchronous deployment to all the available regions would take around 2 hours. This is well outside the bounds of a useful tool.
@@ -1134,7 +1134,7 @@
         </figure>
         <br />
         <!--Section 7-->
-        <h2>7 Conclusion & Future Work</h2>
+        <h2 class="h2">7 Conclusion & Future Work</h2>
         <br />
         <p>
           Constellation provides an accessible and configurable framework for performing geo-distributed load testing. A flexible infrastructure is deployed to perform testing and store resulting data from the command line using a CLI, which can also be used to launch a built-in data visualizer locally.
@@ -1151,7 +1151,7 @@
         </ul>
         <br />
         <!-- Section 8 -->
-        <h2>8 References</h2>
+        <h2 class="h2">8 References</h2>
         <ul>
           <li>
             <a
@@ -1185,14 +1185,14 @@
           <li><a href="https://alvinlal.netlify.app/blog/single-thread-vs-child-process-vs-worker-threads-vs-cluster-in-nodejs/" class="references">single-thread vs child-process vs worker threads</a></li>
         </ul>
         <br>
-        <h2>Presentation</h2>
+        <h2 class="h2">Presentation</h2>
         <div class="presentation-wrapper case-study-image">
 
           <iframe class="presentation-video" frameborder="0" src="https://www.youtube.com/embed/2FsnSr_69bA"
             allowfullscreen></iframe>
         </div class="presentation-wrapper">
         <br>
-        <h2>Team</h2>
+        <h2 class="h2">Team</h2>
         <br />
         <div class="section team-section">
           <div class="container">
