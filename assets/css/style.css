@@ -2186,3 +2186,9 @@ img.template-logo {
     /* ignore */
   }
 }
+
+@media screen and (max-width: 770px) {
+  .tab-image-wrap {
+    margin: -50px 0px;
+  }
+}
