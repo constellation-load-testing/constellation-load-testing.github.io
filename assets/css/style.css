@@ -2166,8 +2166,6 @@ img.template-logo {
   object-fit: contain;
 }
 
-/* at 770 need to modify tab-image-wrap, because the gif overlays the txt */
-
 /* we have a new h1 for spin and geo distributed */
 @media screen and (max-width: 425px) {
   [class="425-appear"] {
@@ -2189,6 +2187,6 @@ img.template-logo {
 
 @media screen and (max-width: 770px) {
   .tab-image-wrap {
-    margin: -50px 0px;
+    margin: -30px 0px;
   }
 }
