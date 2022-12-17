@@ -2306,3 +2306,7 @@ h4.h4 {
   h4.h4 {
   }
 }
+
+.table-primary > td {
+  font-weight: 600;
+}
