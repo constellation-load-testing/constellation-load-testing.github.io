@@ -291,13 +291,21 @@ label {
 
 #case-study {
   width: 100%;
+  /* padding-left: -90px;
+  margin-right: -10%; */
   max-width: 720px;
   float: right;
 }
 
 .case-study-container {
   padding-top: 90px;
-  padding-left: 20%;
+  /* padding-left: 15%; */
+}
+
+@media screen and (max-width: 1300px) {
+  article.case-study-container {
+    padding-left: 15%;
+  }
 }
 
 .case-study-image {
@@ -1822,6 +1830,10 @@ a:hover {
   #case-study {
     width: 100%;
     padding-left: 25%;
+  }
+
+  article.case-study-container {
+    padding-left: 15px;
   }
 }
 
