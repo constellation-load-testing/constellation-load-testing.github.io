@@ -1370,18 +1370,46 @@
       'highlightOffset': 100, //offset to trigger the next headline
     });
 
+    // jquery function to offset from top by 140px
+
     $(document).ready(function () {
+      let prevElm = undefined;
+      let prevTimeoutId = undefined;
+      let timeoutId = undefined;
       $('a[href^="#"]').on('click',function (e) {
           // e.preventDefault();
+          if (prevElm) {
+            prevElm.style.paddingTop="0px"
+            // const parent = prevElm.parentNode;
+            // parent.removeChild(prevElm)
+          }
           var target = this.hash;
           
           $target = $(target);
-         $('html, body').stop().animate({
-           'scrollTop': $target.offset().top-140
-          }, 900, 'swing', function () {
-           window.location.hash = target;
-          });
-      });  
+
+          // now the current node
+          prevElm = $target[0] 
+          prevElm.style.paddingTop="140px"
+          prevElm.style.display="block"
+          // console.log($target)
+
+          timeoutId = setTimeout(() => {
+            // if (prevTimeoutId) {
+            //   console.log(prevTimeoutId)
+            //   clearTimeout(prevTimeoutId)
+            //   prevTimeoutId = undefined
+            //   return;
+            // }
+            // this is the best we can do for offset
+            if (prevElm) {
+              console.log(prevElm)
+              prevElm.style.paddingTop="0px"
+              window.scrollBy(0, -140)
+              prevTimeoutId = timeoutId
+            }
+          }, 3000)
+
+      });
     })
   </script>
   <script type="text/javascript" src="assets/scripts/case-study-script.js"></script>  
