@@ -1374,8 +1374,7 @@
 
     $(document).ready(function () {
       let prevElm = undefined;
-      let prevTimeoutId = undefined;
-      let timeoutId = undefined;
+      let fn = undefined;
       $('a[href^="#"]').on('click',function (e) {
           // e.preventDefault();
           if (prevElm) {
@@ -1393,23 +1392,22 @@
           prevElm.style.display="block"
           // console.log($target)
 
-          timeoutId = setTimeout(() => {
-            // if (prevTimeoutId) {
-            //   console.log(prevTimeoutId)
-            //   clearTimeout(prevTimeoutId)
-            //   prevTimeoutId = undefined
-            //   return;
-            // }
-            // this is the best we can do for offset
-            if (prevElm) {
+          fn = () => {
+            if (prevElm && prevElm.style.paddingTop !== "0px") {
               console.log(prevElm)
               prevElm.style.paddingTop="0px"
               window.scrollBy(0, -140)
-              prevTimeoutId = timeoutId
             }
-          }, 3000)
+          }
 
+          // timeoutId = setTimeout(fn, 3000)
       });
+
+      let isScrolling = undefined
+      window.addEventListener('scroll', function (e) {
+        window.clearTimeout(isScrolling)
+        isScrolling = setTimeout(fn || (() => {}), 66)
+      }, false)
     })
   </script>
   <script type="text/javascript" src="assets/scripts/case-study-script.js"></script>  
