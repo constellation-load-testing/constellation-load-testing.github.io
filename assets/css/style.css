@@ -254,7 +254,8 @@ h6 {
 p {
   margin-top: 0;
   margin-bottom: 10px;
-  text-align: justify;
+  /* text-align: justify; */
+  text-align: left;
 }
 
 button {
@@ -293,7 +294,7 @@ label {
   width: 100%;
   /* padding-left: -90px;
   margin-right: -10%; */
-  max-width: 720px;
+  max-width: 825px;
   float: right;
 }
 
@@ -302,7 +303,25 @@ label {
   /* padding-left: 15%; */
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1450px) {
+  article.case-study-container {
+    padding-left: 15%;
+  }
+}
+
+@media screen and (max-width: 1275px) {
+  article.case-study-container {
+    padding-left: 25%;
+  }
+}
+
+/* @media screen and (max-width: 1150px) {
+  article.case-study-container {
+    padding-left: 30%;
+  }
+} */
+
+@media screen and (max-width: 990px) {
   article.case-study-container {
     padding-left: 15%;
   }
@@ -356,9 +375,9 @@ label {
 }
 
 @media screen and (max-width: 991px) {
-  .w-container {
+  /* .w-container {
     max-width: 728px;
-  }
+  } */
 }
 
 @media screen and (max-width: 479px) {
@@ -1829,11 +1848,6 @@ a:hover {
 @media screen and (max-width: 990px) {
   #case-study {
     width: 100%;
-    padding-left: 25%;
-  }
-
-  article.case-study-container {
-    padding-left: 15px;
   }
 }
 
@@ -1846,7 +1860,11 @@ a:hover {
 
   #case-study {
     width: 100%;
-    padding: 0 1%;
+    padding: 0;
+  }
+
+  article.case-study-container {
+    padding-left: 15px;
   }
 }
 

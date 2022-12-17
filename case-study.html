@@ -281,41 +281,43 @@
           limits on the number of virtual users, test duration, and data retention (Table 2.1).
         </p>
         <br />
-        <table class="table">
-          <caption>Table 2.1: Cloud-based load testing tools</caption>
-          <thead class="thead-dark">
-            <tr>
-              <th>Tool</th>
-              <th>Geo Distributed Load Generation</th>
-              <th>Virtual User Limit</th>
-              <th>Max Test Duration</th>
-              <th>Data Retention</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Artillery Scale</td>
-              <td>Yes</td>
-              <td>1000</td>
-              <td>No Limit</td>
-              <td>N/A</td>
-            </tr>
-            <tr>
-              <td>Blazemeter Pro</td>
-              <td>Yes</td>
-              <td>5000</td>
-              <td>2 hours</td>
-              <td>6 months</td>
-            </tr>
-            <tr>
-              <td>k6 Cloud Pro</td>
-              <td>Yes</td>
-              <td>3000</td>
-              <td>1 hour</td>
-              <td>3 months</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table">
+            <caption>Table 2.1: Cloud-based load testing tools</caption>
+            <thead class="thead-dark">
+              <tr>
+                <th>Tool</th>
+                <th>Geo Distributed Load Generation</th>
+                <th>Virtual User Limit</th>
+                <th>Max Test Duration</th>
+                <th>Data Retention</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Artillery Scale</td>
+                <td>Yes</td>
+                <td>1000</td>
+                <td>No Limit</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <td>Blazemeter Pro</td>
+                <td>Yes</td>
+                <td>5000</td>
+                <td>2 hours</td>
+                <td>6 months</td>
+              </tr>
+              <tr>
+                <td>k6 Cloud Pro</td>
+                <td>Yes</td>
+                <td>3000</td>
+                <td>1 hour</td>
+                <td>3 months</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <br />
         <p>
           This restricts load testing to a particular scale and limits the ability to perform soak testing, which checks for
@@ -329,7 +331,8 @@
           an open-source, serverless, end-to-end framework that aims to simplify 
           the challenges of geographically distributed API load testing.
         </p>
-        <table class="table">
+        <div class="table-responsive">
+          <table class="table">
           <caption>Table 2.2: Cloud-based load testing tools including Constellation</caption>
           <thead class="thead-dark">
             <tr>
@@ -370,7 +373,8 @@
               <td>12 months</td>
             </tr>
           </tbody>
-        </table>
+          </table>
+        </div>
         <br />
         <p>
           The Constellation framework is operated from the command line given a user-generated configuration file and test script.
@@ -401,35 +405,37 @@
           Load testing an API requires enough virtual users to generate the desired number of requests per minute. Constellation
           has been tested up to 10,000 VUs.
         </p>
-        <table class="table">
-          <caption>
-            Table 2.3: Virtual User Limit Duration between tools
-          </caption>
-          <thead class="thead-dark">
-            <tr>
-              <th>Tool</th>
-              <th>Virtual User Limit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Artillery Scale</td>
-              <td>1000</td>
-            </tr>
-            <tr>
-              <td>k6 Cloud Pro</td>
-              <td>3000</td>
-            </tr>
-            <tr>
-              <td>Blazemeter Pro</td>
-              <td>5000</td>
-            </tr>
-            <tr class="table-primary">
-              <td>Constellation</td>
-              <td>N/A* Tested up to 10,000</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table">
+            <caption>
+              Table 2.3: Virtual User Limit Duration between tools
+            </caption>
+            <thead class="thead-dark">
+              <tr>
+                <th>Tool</th>
+                <th>Virtual User Limit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Artillery Scale</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>k6 Cloud Pro</td>
+                <td>3000</td>
+              </tr>
+              <tr>
+                <td>Blazemeter Pro</td>
+                <td>5000</td>
+              </tr>
+              <tr class="table-primary">
+                <td>Constellation</td>
+                <td>N/A* Tested up to 10,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <br />
         <p>
           For the managed services that have a lower virtual user limit (e.g. Artillery, k6 Cloud) they can make more frequent
@@ -455,35 +461,37 @@
           Blazemeter and K6 cloud are limited to 5 hours and 1 hour, respectively.
         </p>
         <br />
-        <table class="table">
-          <caption>
-            Table 2.4: Max Test Duration between tools
-          </caption>
-          <thead class="thead-dark">
-            <tr>
-              <th>Tool</th>
-              <th>Max Test Duration</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>k6 Cloud Pro</td>
-              <td>1 hour</td>
-            </tr>
-            <tr>
-              <td>Blazemeter Pro</td>
-              <td>2 hours</td>
-            </tr>
-            <tr>
-              <td>Artillery Scale</td>
-              <td>No Limit</td>
-            </tr>
-            <tr class="table-primary">
-              <td>Constellation</td>
-              <td>No Limit</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table">
+            <caption>
+              Table 2.4: Max Test Duration between tools
+            </caption>
+            <thead class="thead-dark">
+              <tr>
+                <th>Tool</th>
+                <th>Max Test Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>k6 Cloud Pro</td>
+                <td>1 hour</td>
+              </tr>
+              <tr>
+                <td>Blazemeter Pro</td>
+                <td>2 hours</td>
+              </tr>
+              <tr>
+                <td>Artillery Scale</td>
+                <td>No Limit</td>
+              </tr>
+              <tr class="table-primary">
+                <td>Constellation</td>
+                <td>No Limit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <br />
         <h4>Data Retention</h4>
         <br />
@@ -498,35 +506,37 @@
           database will have monthly fees based on the amount of data stored.
         </p>
         <br />
-        <table class="table">
-          <caption>
-            Table 2.5: Data Retention between tools
-          </caption>
-          <thead class="thead-dark">
-            <tr>
-              <th>Tool</th>
-              <th>Data Retention</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Artillery Scale Tier</td>
-              <td>N/A</td>
-            </tr>
-            <tr>
-              <td>k6 Cloud Pro Tier</td>
-              <td>3 months</td>
-            </tr>
-            <tr>
-              <td>Blazemeter Pro Tier</td>
-              <td>6 months</td>
-            </tr>
-            <tr class="table-primary">
-              <td>Constellation</td>
-              <td>12 months</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table">
+            <caption>
+              Table 2.5: Data Retention between tools
+            </caption>
+            <thead class="thead-dark">
+              <tr>
+                <th>Tool</th>
+                <th>Data Retention</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Artillery Scale Tier</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <td>k6 Cloud Pro Tier</td>
+                <td>3 months</td>
+              </tr>
+              <tr>
+                <td>Blazemeter Pro Tier</td>
+                <td>6 months</td>
+              </tr>
+              <tr class="table-primary">
+                <td>Constellation</td>
+                <td>12 months</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <br />
         <h4>Constellation Summary</h4>
         <br />
