@@ -70,16 +70,19 @@
   <div class="section header">
     <article class="container case-study-container">
       <div class="hero-text-container">
-        <h1 class="h1 centered">Case Study</h1>
+        <!-- <h1 class="h1">Case Study</h1> -->
       </div>
       <div id="case-study">
-        <br />
-        <br />
+        <!-- <br />
+        <br /> -->
         <!-- Introduction -->
+        <h1 class="h1">Case Study</h1>
+        <br />
         <p>
           Constellation is an open-source, serverless, end-to-end framework that aims to simplify geographically distributed load testing. 
           Constellation automates load generation to allow developers to test how their system responds to requests from all over the globe.
         </p>
+        <hr />
         <br />
         <!-- Section 1 -->
         <h2 class="h2">1 Load Testing</h2>
@@ -252,7 +255,8 @@
             Being able to generate loads from multiple geographical locations can be used to test the comprehensiveness of the routing logic.
           </li>
         </ol>
-        <br/>
+        <hr />
+        <br />
         <!-- Section 2 -->
         <h2 class="h2">2 Existing Solutions</h2>
         <br />
@@ -554,6 +558,7 @@
           environments. Constellation can simulate loads of up to 10,000 concurrent users and tests can be of any duration. Developers can also
           see their load test results visualized in a dashboard.
         </p>
+        <hr />
         <br />
         <!-- Section 3-->
         <h2 class="h2">3 Design Decisions</h2>
@@ -685,6 +690,7 @@
           <img src="assets/images/3-design-decisions/3.4-elt-components.gif">
           <figcaption>Fig. 3.8: Overview of ETL with Constellation Framework Components</figcaption>
         </figure>
+        <hr />
         <br />
         <!-- Section 4-->
         <h2 class="h2">4 Constellation’s Architecture</h2>
@@ -770,7 +776,8 @@
         <p>
           The data aggregator sends the results from all the generators in batches and provides a single data stream to the time series database in the home region.
         </p>
-        <br/>
+        <hr />
+        <br />
         <!--Section 5-->
         <h2 class="h2">5 Components</h2>
         <br/>
@@ -931,7 +938,8 @@
           <img src="assets/images/5-components/5.5-points_on_the_graph.gif">
           <figcaption>Fig. 5.7: Constellation visualizer demonstration</figcaption>
         </figure>
-        <br/>
+        <hr />
+        <br />
         <!--Section 6-->
         <h2 class="h2">6 Challenges</h2>
         <br />
@@ -1142,6 +1150,7 @@
           <img src="/assets/images/6-challenges/6.3-parallelized-deployment.png">
           <figcaption>Fig 6.11: Synchronized and Parallelized Deployment</figcaption>
         </figure>
+        <hr />
         <br />
         <!--Section 7-->
         <h2 class="h2">7 Conclusion & Future Work</h2>
@@ -1159,6 +1168,7 @@
           <li>The CDK implementation should be evaluated for unnecessary operations and leftover deployment artifacts as well as fine-tuning CPU and memory allocations for the containers. The CDK may eventually be replaced with a custom deployment application using the AWS SDK to improve deployment times.</li>
           <li>Several pieces of supporting software can simplify Constellation’s use and verify that tests will perform as intended. These tools include the capability to deploy the load generator and data aggregator locally, inspect the correctness of the configuration and test script files, and check the local AWS account to verify that the system is prepared to deploy using the CDK.</li>
         </ul>
+        <hr />
         <br />
         <!-- Section 8 -->
         <h2 class="h2">8 References</h2>
