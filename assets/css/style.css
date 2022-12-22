@@ -1218,9 +1218,9 @@ a:hover {
   right: auto;
   bottom: -140px;
   z-index: 2;
-  width: 350px;
+  width: 500px;
   border-radius: 10px;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .hero-image-right {
@@ -1558,8 +1558,8 @@ a:hover {
 
 @media screen and (min-width: 1280px) {
   .hero-image-left {
-    width: 350px;
-    /* width: 500px; */
+    /* width: 350px; */
+    width: 500px;
   }
   .hero-image-right {
     /* width: 760px; */
